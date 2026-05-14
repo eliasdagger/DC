@@ -69,3 +69,40 @@ See `docs/` for detailed architecture, schema, and methodology.
 ## Author
 
 Built by Elie Dagher.
+
+
+# Implementation Progress
+
+### Week 0 - Planning (Early Apr)
+- [x] Set up and planned structure aligning with company goals.
+
+### Week 1 - Data Ingestion (Apr)
+- [x] Learned and define Pydantic Models for Stocks and Clients. 
+- [x] Implented yfinance API fetching
+- [x] Built DuckDB caching methods
+- [x] Tested end to end with AAPL stock data (debugging, ensuring output was ideal)
+
+**What works:**
+- `get_prices()` — fetches OHLCV data from yfinance
+- `cache_prices()` — stores prices in DuckDB
+- `get_cached_price()` — retrieves cached prices
+
+**Database:**
+- `prices` table with columns: ticker, date, etc
+
+## Tech Stack
+- Python
+- Pandas
+- DuckDB
+- NumPy
+- yfinance for market data
+- Pydantic for data validation
+
+Time to complete: ~3-4 days 
+---
+
+### Week 2 - Feature Engineering (In progress)
+- [ ] Implement return calculations (simple, log, cumulative)
+- [ ] Calculate volatility metrics
+- [ ] Build Sharpe ratio computation
+
