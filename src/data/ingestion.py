@@ -25,14 +25,18 @@ import duckdb as dd
 import yfinance as yf
 from datetime import date
 
-def get_prices(self, ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
-    ticker_name = yf.Ticker[ticker]
+def get_prices(ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
+    print(f"Attaining {ticker} prices...")
+    ticker_name = yf.Ticker(ticker)
     # .history() --> pd.DataFrame()
     prices = ticker_name.history(start = start_date, end = end_date)
+    print(f"Recieved and returning {ticker} prices.")
     return prices
 
 
 def cache_prices(conn: dd.DuckDBPyConnection, prices: pd.DataFrame, ticker: str) -> None:
+    print(f"Creating DuckDB table...")
+    # Create Table
     conn.execute("""
         CREATE TABLE IF NOT EXISTS prices (
                  ticker VARCHAR, 
@@ -44,11 +48,12 @@ def cache_prices(conn: dd.DuckDBPyConnection, prices: pd.DataFrame, ticker: str)
                  volume INTEGER       
         )
     """)
-
+    print(f"Storing data into dagher.duckdb...")
+    # Fill table for row in table named "prices"
     for idx, row in prices.iterrows():
         conn.execute(
             "INSERT INTO prices VALUES (?, ?, ?, ?, ?, ?, ?)",
-            [ticker, idx.date(), row['open'], row['high'], row['Low'], row['Close'], row['Volume']]
+            [ticker, idx.date(), row['Open'], row['High'], row['Low'], row['Close'], row['Volume']]
         )
     
         
