@@ -33,31 +33,60 @@ pytest tests/
 - `data/` — Raw and processed data
 - `docs/` — Architecture and methodology documentation
 
-## Usage
-
-```python
-import duckdb
-from src.data.storage import initialize_db
-from src.features.returns import compute_returns
-
-conn = duckdb.connect('dagher.duckdb')
-returns = compute_returns(conn, 'AAPL')
-```
-
 ## Tech Stack
 
 - **Python** — Core language
 - **DuckDB** — Analytical database
 - **pandas / NumPy** — Data manipulation and math
+- **yfinance** — Market data
 - **Pydantic** — Data validation
-- **Jupyter** — Prototyping
 - **Matplotlib / Plotly** — Visualization
 - **pytest** — Testing
 
+## Implementation Progress
+
+### Week 1 — Data Ingestion ✅
+- [x] Define Pydantic models (Stock, Client)
+- [x] Implement yfinance API fetching
+- [x] Build DuckDB caching layer
+- [x] Test end-to-end with real stock data
+
+**What works:**
+- `get_prices()` — fetches OHLCV data from yfinance
+- `cache_prices()` — stores prices in DuckDB
+- `get_cached_price()` — retrieves cached prices
+
+**Database:** `prices` table with columns: ticker, date, open, high, low, close, volume
+
+---
+
+### Week 2 — Return Calculations ✅
+- [x] Implement simple return calculations
+- [x] Implement log return calculations
+- [x] Implement cumulative return calculations
+- [x] Implement annualized return calculations
+- [x] Implement volatility calculations
+
+**What works:**
+- `simple_returns()` — daily percentage returns
+- `log_returns()` — logarithmic returns
+- `cumulative_returns()` — total return over period
+- `annualized_return()` — return scaled to yearly basis
+- `volatility()` — annualized standard deviation
+
+---
+
+### Week 3-5 — Portfolio Metrics (In Progress)
+- [ ] Sharpe ratio calculation
+- [ ] Drawdown analysis
+- [ ] Position tracking
+- [ ] Auto-generate client cards
+- [ ] Polish & testing
+
 ## Roadmap
 
-- [x] Initial repo setup
-- [ ] Layer 1: Portfolio analytics engine
+- [x] Layer 1: Data infrastructure & returns
+- [ ] Layer 1: Portfolio metrics & reporting
 - [ ] Layer 2: MCDA investment screening
 - [ ] Layer 3: Portfolio optimizer
 - [ ] Layer 4: Trading algorithm
@@ -68,41 +97,4 @@ See `docs/` for detailed architecture, schema, and methodology.
 
 ## Author
 
-Built by Elie Dagher.
-
-
-# Implementation Progress
-
-### Week 0 - Planning (Early Apr)
-- [x] Set up and planned structure aligning with company goals.
-
-### Week 1 - Data Ingestion (Apr)
-- [x] Learned and define Pydantic Models for Stocks and Clients. 
-- [x] Implented yfinance API fetching
-- [x] Built DuckDB caching methods
-- [x] Tested end to end with AAPL stock data (debugging, ensuring output was ideal)
-
-**What works:**
-- `get_prices()` — fetches OHLCV data from yfinance
-- `cache_prices()` — stores prices in DuckDB
-- `get_cached_price()` — retrieves cached prices
-
-**Database:**
-- `prices` table with columns: ticker, date, etc
-
-## Tech Stack
-- Python
-- Pandas
-- DuckDB
-- NumPy
-- yfinance for market data
-- Pydantic for data validation
-
-Time to complete: ~3-4 days 
----
-
-### Week 2 - Feature Engineering (In progress)
-- [ ] Implement return calculations (simple, log, cumulative)
-- [ ] Calculate volatility metrics
-- [ ] Build Sharpe ratio computation
-
+Built by Elie Dagher as Dagher Capital's quantitative infrastructure.
