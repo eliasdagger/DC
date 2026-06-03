@@ -24,7 +24,9 @@ import pandas as pd
 import duckdb as dd
 import yfinance as yf
 from datetime import date
+# from src.utils.models import Stock, Client
 
+import numpy as np
 def get_prices(ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
     print(f"Attaining {ticker} prices...")
     ticker_name = yf.Ticker(ticker)
@@ -70,12 +72,13 @@ def get_cached_price(conn: dd.DuckDBPyConnection, ticker: str, date_str: str) ->
 if __name__ == "__main__":
     conn = dd.connect('dagher.duckdb')
     
-    prices = get_prices("AAPL", "2024-01-01", "2024-12-31")
-    print(prices.head())
+    prices_amzn = get_prices("AMZN", "2024-01-01", "2024-12-31")
+    print(prices_amzn.head())
     
-    cache_prices(conn, prices, "AAPL")
+    cache_prices(conn, prices_amzn, "AMZN")
     print("Cached.")
 
     conn.close()
+
 
 
