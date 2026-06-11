@@ -25,7 +25,6 @@ Example:
 
 from typing import List, Optional
 from pydantic import BaseModel, Field
-# Type hinting for code clarity
 from datetime import date
 
 
@@ -46,3 +45,10 @@ class Client(BaseModel):
     cash_position: int = Field(default=None)
     goals: str 
     considerations: str = Field(default=None)
+
+
+s = [Stock(ticker="AMZN", shares="10", purchase_price=12.0, purchase_date=date(2024, 1, 1)),
+     Stock(ticker="MSFT", shares="12", purchase_price=10, purchase_date=date(2024, 1, 1))]
+
+c1 = Client(client_id=123, name="John", risk_tolerance="High", holdings=s, goals="retirement")
+print(c1)

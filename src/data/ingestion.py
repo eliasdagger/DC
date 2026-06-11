@@ -27,6 +27,7 @@ from datetime import date
 # from src.utils.models import Stock, Client
 
 import numpy as np
+
 def get_prices(ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
     print(f"Attaining {ticker} prices...")
     ticker_name = yf.Ticker(ticker)
