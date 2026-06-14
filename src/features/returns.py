@@ -84,7 +84,11 @@ def annualized_return(conn: dd.DuckDBPyConnection, ticker: str, start_date: str,
     print(f"From {start_date} to {end_date}, annualized return is: {annualized_return}")
     return annualized_return
 
+def sharpe_ratio(conn: dd.DuckDBPyConnection, ) -> float:
+    pass
 
+def max_drawdown(conn: dd.DuckDBPyConnection, ) -> float:
+    pass
 
 
 # annualized_return(conn, 'AMZN', "2024-01-01", "2024-12-31")
