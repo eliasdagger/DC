@@ -1,8 +1,29 @@
+"""
+Module: Client Schema Database Storage
+
+Problem:
+In order to access data, the data must be stored within a trackable, structured database.
+Below, data is received then written in a local file.
+Description:
+Operations include: creating named tables, ensuring no redundencies, allocating 
+essential Client data in a ordered manner, and retrieving desired information.  
+
+Key Functions:
+- create_clients_table: Creates a table of clients and their respective information.
+- add_client: Fills in client data into 'clients' table
+- get_client_data: Retrieves client data
+
+Dependencies:
+- pandas: Efficiently return the table via .df() method 
+- duckdb: Store and query data locally
+
+Example:
+    >>> c1 = Client(id=123, name="John", risk_tolerance="High", holdings=List[Stock], goals="retirement")
+"""
+
 import pandas as pd
 import duckdb as dd
-import numpy as np
-from datetime import date
-from typing import List, Optional
+from src.utils.models import Client
 
 # from src.utils.models import Client, Stock
 
@@ -39,14 +60,8 @@ def get_client_data(conn: dd.DuckDBPyConnection, client: Client) -> pd.DataFrame
 
     return result
 
-
-s = [Stock(ticker="AMZN", shares="10", purchase_price=12.0, purchase_date=date(2024, 1, 1)),
-     Stock(ticker="MSFT", shares="12", purchase_price=10, purchase_date=date(2024, 1, 1))]
-
-c1 = Client(id=123, name="John", risk_tolerance="High", holdings=s, goals="retirement")
-
 # create_clients_table(conn)
 # add_client(conn, c1)
-print(get_client_data(conn, c1).to_string())
+# print(get_client_data(conn, c1).to_string())
 
 

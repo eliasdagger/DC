@@ -1,5 +1,5 @@
 """
-Module: Data Models
+Module: Data Schemas/Blueprints
 
 Problem:
 Client and portfolio data needs structure and validation. Without schemas,
@@ -20,7 +20,7 @@ Dependencies:
 
 Example:
     >>> stock = Stock(ticker="AAPL", shares=100, purchase_price=150.25, purchase_date=date(2024, 1, 15))
-    >>> client = Client(client_id=1, name="John", risk_tolerance="medium", holdings=[stock], goals="Growth")
+    >>> client = Client(id=1, name="John", risk_tolerance="medium", holdings=[stock], goals="Growth")
 """
 
 from typing import List, Optional
@@ -31,11 +31,15 @@ from datetime import date
 class Stock(BaseModel):
     ticker: str
     shares: float
-    purchase_price: float
     purchase_date: date
+    purchase_price: float
+    sale_date: date = Field(default=None)
+    sale_price: float = Field(default=None)
+    dividends: float = Field(default=None)
+    dividend_pct: float = Field(default=None)
 
 class Client(BaseModel):
-    client_id: int
+    id: int
     name: str = Field(default = "Anon")
     risk_tolerance: str
     age: int = Field(default=None)
@@ -50,5 +54,5 @@ class Client(BaseModel):
 s = [Stock(ticker="AMZN", shares="10", purchase_price=12.0, purchase_date=date(2024, 1, 1)),
      Stock(ticker="MSFT", shares="12", purchase_price=10, purchase_date=date(2024, 1, 1))]
 
-c1 = Client(client_id=123, name="John", risk_tolerance="High", holdings=s, goals="retirement")
+c1 = Client(id=123, name="John", risk_tolerance="High", holdings=s, goals="retirement")
 print(c1)

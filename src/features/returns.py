@@ -1,3 +1,27 @@
+"""
+Module: Return Calculations
+
+Problem:
+What is the purpose of structuring and storing data? returns.py serves to handle client's stocks
+to deliver returns with various financial return metrics for performance transparency.   
+
+Description:
+Accesses dagher.duckdb queries data for specific tickers and date ranges, then calculates returns.
+Key Functions:
+- simple_returns: Returns % change month over month, derived from closing price over a specific date range. 
+- log_returns: Calculates log return (ln(currentValue / initialValue)) 
+- cumulative_returns: Returns total % gained/lost over period
+- volatility: Calculates volatility by multiplying trading days by stock stdev (swing movement)
+- annualized_return: Calculates stocks avg YoY return by attaining initialValue and currentValue/endValue and averaging gains by years held 
+
+Dependencies:
+- duckdb: For querying cached price data
+- pandas: For time-series manipulation
+- numpy: For vectorized math
+
+Example:
+    >>> [one working example]
+"""
 import duckdb as dd
 import pandas as pd
 import numpy as np
@@ -40,7 +64,7 @@ def cumulative_returns(conn: dd.DuckDBPyConnection, ticker: str, start_date: str
     returns = (new_price - old_price) / old_price
     return returns
 
-def volatility(returns: pd.series) -> float:
+def volatility(returns: pd.Series) -> float:
     daily_vol = np.std(returns)
     annual_vol = daily_vol * np.sqrt(252)
     return annual_vol
@@ -50,7 +74,7 @@ def annualized_return(conn: dd.DuckDBPyConnection, ticker: str, start_date: str,
         "SELECT close FROM prices WHERE ticker = ? AND date >= ? ORDER BY date LIMIT 1",
         [ticker, start_date]).fetchone()[0]
     end_price = conn.execute(
-        "SELECT close FROM prices WHERE ticker = ? AND date <= ? ORDER BY date DESC",
+        "SELECT close FROM prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT 1",
         [ticker, end_date]).fetchone()[0]
     
     conn_size = conn.execute("SELECT COUNT(*) FROM prices WHERE ticker = ?", [ticker]).fetchone()[0]
@@ -63,5 +87,5 @@ def annualized_return(conn: dd.DuckDBPyConnection, ticker: str, start_date: str,
 
 
 
-annualized_return(conn, 'AMZN', "2024-01-01", "2024-12-31")
+# annualized_return(conn, 'AMZN', "2024-01-01", "2024-12-31")
 
