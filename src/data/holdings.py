@@ -53,6 +53,12 @@ def add_holdings(conn: dd.DuckDBPyConnection, stocks: List[Stock]) -> None:
              stock.dividends, stock.dividend_pct]
         )
 
+def get_holdings(conn: dd.DuckDBPyConnection, client_id: int) -> pd.DataFrame:
+    holdings = conn.execute(
+        "SELECT * FROM holdings WHERE id = ?",
+        [client_id]
+    ).df()
+
 
 
 
