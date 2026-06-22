@@ -9,10 +9,12 @@ Description:
 Accesses dagher.duckdb queries data for specific tickers and date ranges, then calculates returns.
 Key Functions:
 - simple_returns: Returns % change month over month, derived from closing price over a specific date range. 
-- log_returns: Calculates log return (ln(currentValue / initialValue)) 
-- cumulative_returns: Returns total % gained/lost over period
-- volatility: Calculates volatility by multiplying trading days by stock stdev (swing movement)
-- annualized_return: Calculates stocks avg YoY return by attaining initialValue and currentValue/endValue and averaging gains by years held 
+- log_returns: Calculates log return (ln(currentValue / initialValue)). 
+- cumulative_returns: Returns total % gained/lost over period.
+- volatility: Calculates volatility by multiplying trading days by stock stdev (swing movement).
+- annualized_return: Calculates stocks avg YoY return by attaining initialValue and currentValue/endValue and averaging gains by years held. 
+- sharpe_ratio: Calculates the risk-adjusted return, essentially how much excess returns are we returning relative to the risk we are tackling on.
+- max_drawdown: Calculates the largest decline the stock has seen from peak relative to trough (min)
 
 Dependencies:
 - duckdb: For querying cached price data
@@ -25,6 +27,7 @@ Example:
 import duckdb as dd
 import pandas as pd
 import numpy as np
+import yfinance as yf
 from datetime import date
 
 conn = dd.connect("dagher.duckdb")
@@ -59,9 +62,12 @@ def cumulative_returns(conn: dd.DuckDBPyConnection, ticker: str, start_date: str
         "SELECT close FROM prices WHERE ticker = ? AND date <= ? ORDER BY Date DESC LIMIT 1",
         [ticker, end_date]
     ).fetchone()[0]
+
     print(f"Start price ({start_date}): {old_price}")
     print(f"End price ({end_date}): {new_price}")
+
     returns = (new_price - old_price) / old_price
+    
     return returns
 
 def volatility(returns: pd.Series) -> float:
@@ -85,10 +91,26 @@ def annualized_return(conn: dd.DuckDBPyConnection, ticker: str, start_date: str,
     return annualized_return
 
 def sharpe_ratio(conn: dd.DuckDBPyConnection, ) -> float:
-    pass
+    RISK_FREE_RATE = 0.05
+    returns = simple_returns(conn, ticker) * 252
+    expected_returns = returns.mean()    
+    vol = volatility(returns)
+    sharpe = (expected_returns - RISK_FREE_RATE) / vol
+    return sharpe
+    
 
-def max_drawdown(conn: dd.DuckDBPyConnection, ) -> float:
-    pass
+def max_drawdown(conn: dd.DuckDBPyConnection, ticker: str) -> float:
+    pd_df = conn.execute(
+        "SELECT close FROM prices WHERE ticker = ?",
+        [ticker]
+    ).df()
+
+    min = pd_df.min()
+    max = pd_df.max()
+
+    return (max - min) / max
+
+    
 
 
 # annualized_return(conn, 'AMZN', "2024-01-01", "2024-12-31")
