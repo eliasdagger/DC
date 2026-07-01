@@ -42,7 +42,7 @@ def create_holdings_table(conn: dd.DuckDBPyConnection) -> None:
         )"""
     )
 
-def add_holdings(conn: dd.DuckDBPyConnection, stocks: List[Stock], id: int) -> None:
+def add_holdings(conn: dd.DuckDBPyConnection, stocks: List[Stock], client_id: int) -> None:
     print(f"Adding: {stocks} to dagher.duckdb table - holdings")
     for stock in stocks:
         conn.execute(

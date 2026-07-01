@@ -39,7 +39,7 @@ class Stock(BaseModel):
     dividend_pct: float = Field(default=None)
 
 class Client(BaseModel):
-    id: int
+    client_id: int
     name: str = Field(default = "Anon")
     risk_tolerance: str
     age: int = Field(default=None)

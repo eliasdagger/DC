@@ -80,11 +80,29 @@ def annualized_return(conn: dd.DuckDBPyConnection, ticker: str, start_date: str,
     print(f"From {start_date} to {end_date}, annualized return is: {annualized_return}")
     return annualized_return
 
-def sharpe_ratio(conn: dd.DuckDBPyConnection, ) -> float:
-    pass
+def sharpe_ratio(conn: dd.DuckDBPyConnection, ticker: str, risk_free_rate: float, start_date: str, end_date: str) -> float:
+    roi = annualized_return(conn, ticker, start_date, end_date)
+    returns = simple_returns(conn, ticker)
+    vol = volatility(returns)
 
-def max_drawdown(conn: dd.DuckDBPyConnection, ) -> float:
-    pass
+    sharpe = (roi - risk_free_rate) / vol
+    return sharpe
+    
 
+def max_drawdown(conn: dd.DuckDBPyConnection, ticker: str) -> float:
+    returns = simple_returns(conn, ticker).dropna()
 
+    # cumulative product calculates the current 'price' based off percent change. add 1 to normalize
+    cumprod = (1 + returns).cumprod()
 
+    peak = cumprod.cummax()
+
+    drawdown = ((cumprod - peak) / peak) * 100
+
+    max_dd = drawdown.min()
+    return max_dd
+
+# NOTE - ADD TO ENGINE LATER
+conn = dd.connect('dagher.duckdb')
+# print(f"sharpe = {sharpe_ratio(conn, "AMZN", 0.043, "2024-01-01", "2024-12-31")}")
+# print(f"drawdown = {max_drawdown(conn, "AMZN")}")

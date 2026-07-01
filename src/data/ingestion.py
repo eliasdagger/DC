@@ -68,8 +68,3 @@ def get_cached_price(conn: dd.DuckDBPyConnection, ticker: str, date_str: str) ->
     ).fetchone()
     
     return result[0] if result else None
-
-
-
-
-
