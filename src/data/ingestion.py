@@ -70,16 +70,6 @@ def get_cached_price(conn: dd.DuckDBPyConnection, ticker: str, date_str: str) ->
     return result[0] if result else None
 
 
-if __name__ == "__main__":
-    conn = dd.connect('dagher.duckdb')
-    
-    prices_amzn = get_prices("AMZN", "2024-01-01", "2024-12-31")
-    print(prices_amzn.head())
-    
-    cache_prices(conn, prices_amzn, "AMZN")
-    print("Cached.")
-
-    conn.close()
 
 
 

@@ -4,13 +4,13 @@ import duckdb as dd
 from src.utils.models import Client, Stock
 from src.features.returns import simple_returns, volatility
 
-conn = dd.connect('dagher.duckdb')
-
-
-
 def get_client_positions(conn, client_id) -> pd.DataFrame:
-    """Get all holdings for a client"""
-    pass
+    positions = conn.execute(
+        "SELECT ticker FROM holdings WHERE ticker = ?",
+        [client_id.ticker]
+    )
+    
+    return positions
 
 def compute_position_value(conn, ticker, shares) -> float:
     """Current market value of a position"""

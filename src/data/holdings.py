@@ -22,15 +22,15 @@ Example:
                 ]
 """
 from typing import List
+import pandas as pd
 import duckdb as dd
 from datetime import date
 from src.utils.models import Stock
 
-conn = dd.connect('dagher.duckdb')
-
 def create_holdings_table(conn: dd.DuckDBPyConnection) -> None:
     conn.execute(
         """CREATE TABLE IF NOT EXISTS holdings(
+            client_id INTEGER,
             ticker VARCHAR,
             shares FLOAT,
             purchase_date DATE,
@@ -42,12 +42,12 @@ def create_holdings_table(conn: dd.DuckDBPyConnection) -> None:
         )"""
     )
 
-def add_holdings(conn: dd.DuckDBPyConnection, stocks: List[Stock]) -> None:
+def add_holdings(conn: dd.DuckDBPyConnection, stocks: List[Stock], id: int) -> None:
     print(f"Adding: {stocks} to dagher.duckdb table - holdings")
     for stock in stocks:
         conn.execute(
-            "INSERT INTO holdings VALUES (?,?,?,?,?,?,?, ?)",
-            [stock.ticker, stock.shares,
+            "INSERT INTO holdings VALUES (?,?,?,?,?,?,?,?,?)",
+            [client_id, stock.ticker, stock.shares,
              stock.purchase_date, stock.purchase_price,
              stock.sale_date, stock.sale_price,
              stock.dividends, stock.dividend_pct]
@@ -55,9 +55,11 @@ def add_holdings(conn: dd.DuckDBPyConnection, stocks: List[Stock]) -> None:
 
 def get_holdings(conn: dd.DuckDBPyConnection, client_id: int) -> pd.DataFrame:
     holdings = conn.execute(
-        "SELECT * FROM holdings WHERE id = ?",
+        "SELECT * FROM holdings WHERE client_id = ?",
         [client_id]
     ).df()
+
+    return holdings
 
 
 

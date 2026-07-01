@@ -27,10 +27,6 @@ import pandas as pd
 import numpy as np
 from datetime import date
 
-conn = dd.connect("dagher.duckdb")
-
-
-
 def simple_returns(conn: dd.DuckDBPyConnection, ticker: str) -> pd.Series:
     close_df = conn.execute(
         "SELECT date, close FROM prices WHERE ticker = ? ORDER BY Date", 
@@ -91,5 +87,4 @@ def max_drawdown(conn: dd.DuckDBPyConnection, ) -> float:
     pass
 
 
-# annualized_return(conn, 'AMZN', "2024-01-01", "2024-12-31")
 

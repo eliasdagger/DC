@@ -27,9 +27,6 @@ from src.utils.models import Client
 
 # from src.utils.models import Client, Stock
 
-conn = dd.connect('dagher.duckdb')
-
-
 def create_clients_table(conn: dd.DuckDBPyConnection) -> None:
     conn.execute("""
         CREATE TABLE IF NOT EXISTS clients(
@@ -60,8 +57,6 @@ def get_client_data(conn: dd.DuckDBPyConnection, client: Client) -> pd.DataFrame
 
     return result
 
-# create_clients_table(conn)
-# add_client(conn, c1)
-# print(get_client_data(conn, c1).to_string())
+
 
 
