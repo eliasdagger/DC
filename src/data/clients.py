@@ -27,9 +27,6 @@ from src.utils.models import Client
 
 # from src.utils.models import Client, Stock
 
-conn = dd.connect('dagher.duckdb')
-
-
 def create_clients_table(conn: dd.DuckDBPyConnection) -> None:
     conn.execute("""
         CREATE TABLE IF NOT EXISTS clients(
@@ -49,19 +46,20 @@ def add_client(conn: dd.DuckDBPyConnection, client: Client) -> None:
     print(f"Adding {client.name} to clients table in dagher.duckdb")
     conn.execute(
         "INSERT INTO clients VALUES (?,?,?,?,?,?,?)",
-        [client.id, client.name, client.risk_tolerance, client.age, client.cash_position, client.goals, client.considerations]
+        [client.client_id, client.name, 
+         client.risk_tolerance, client.age, 
+         client.cash_position, client.goals, 
+         client.considerations]
     )
     
 def get_client_data(conn: dd.DuckDBPyConnection, client: Client) -> pd.DataFrame:
     result = conn.execute(
         "SELECT * FROM clients WHERE id = ?",
-        [client.id]
+        [client.client_id]
     ).df()
 
     return result
 
-# create_clients_table(conn)
-# add_client(conn, c1)
-# print(get_client_data(conn, c1).to_string())
+
 
 

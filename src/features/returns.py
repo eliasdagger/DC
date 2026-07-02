@@ -30,10 +30,6 @@ import numpy as np
 import yfinance as yf
 from datetime import date
 
-conn = dd.connect("dagher.duckdb")
-
-
-
 def simple_returns(conn: dd.DuckDBPyConnection, ticker: str) -> pd.Series:
     close_df = conn.execute(
         "SELECT date, close FROM prices WHERE ticker = ? ORDER BY Date", 
@@ -99,18 +95,8 @@ def sharpe_ratio(conn: dd.DuckDBPyConnection, ) -> float:
     return sharpe
     
 
-def max_drawdown(conn: dd.DuckDBPyConnection, ticker: str) -> float:
-    pd_df = conn.execute(
-        "SELECT close FROM prices WHERE ticker = ?",
-        [ticker]
-    ).df()
-
-    min = pd_df.min()
-    max = pd_df.max()
-
-    return (max - min) / max
-
-    
+def max_drawdown(conn: dd.DuckDBPyConnection, ) -> float:
+    pass
 
 
 # annualized_return(conn, 'AMZN', "2024-01-01", "2024-12-31")

@@ -39,7 +39,7 @@ class Stock(BaseModel):
     dividend_pct: float = Field(default=None)
 
 class Client(BaseModel):
-    id: int
+    client_id: int
     name: str = Field(default = "Anon")
     risk_tolerance: str
     age: int = Field(default=None)
@@ -49,10 +49,3 @@ class Client(BaseModel):
     cash_position: int = Field(default=None)
     goals: str 
     considerations: str = Field(default=None)
-
-
-s = [Stock(ticker="AMZN", shares="10", purchase_price=12.0, purchase_date=date(2024, 1, 1)),
-     Stock(ticker="MSFT", shares="12", purchase_price=10, purchase_date=date(2024, 1, 1))]
-
-c1 = Client(id=123, name="John", risk_tolerance="High", holdings=s, goals="retirement")
-print(c1)
