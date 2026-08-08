@@ -1,0 +1,48 @@
+# DC — MCDA screening & scoring criteria
+#
+# All metrics below are tunable so weights can be changed without touching code.
+# Loaded via src.utils.config.load_criteria().
+
+
+# ── Qualitative pillar weights (by company type) ─────────────────────────────
+# Raw numbers, NOT percentages — they are normalized to sum to 1.0 at load time
+# by get_weighting() in src/mcda/scoring.py. That means you can edit any single
+# number here without having to rebalance the others to hit 100.
+
+pillar_weights:
+  Early-Stage:
+    leadership: 25
+    industry_growth: 15
+    moat: 25
+    macro: 35
+
+  High-Growth:
+    leadership: 15
+    industry_growth: 25
+    moat: 30
+    macro: 30
+
+  Mature:
+    leadership: 10
+    industry_growth: 30
+    moat: 35
+    macro: 25
+
+
+# ── Filtration thresholds ─────────────────────────────────────────────────────
+# Absolute cutoffs applied BEFORE any ranking happens. These eliminate
+# companies outright based off of manipulated balance sheets.
+screening:
+  # Altman Z-score:
+  #   3.00+ SAFE ZONE
+  #   1.81 - 2.99 GREY ZONE
+  #   < 1.81 DANGER ZONE
+
+  # The cutoff point is 1.81 filtering out companies which are predicted to go bankrupt in the next 2 years as per the Altman Z Score financial formula of 1968. 
+  altman_z_min: 1.81
+
+  # Drop the bottom N% of the universe by average daily volume, to avoid
+  # illiquid names where transaction costs would eat any edge.
+  # Currently, we will include all positions in our ranking, this is because the current pool of analysed companies are fortune 500 level companies do to our current phase being the testing phase. 
+  # This number will likely remain until smaller companies premier their analysis.  
+  min_liquidity_pctile: 0

@@ -36,7 +36,6 @@ def get_prices(ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
     print(f"Recieved and returning {ticker} prices.")
     return prices
 
-
 def cache_prices(conn: dd.DuckDBPyConnection, prices: pd.DataFrame, ticker: str) -> None:
     print(f"Creating DuckDB table...")
     # Create Table
@@ -58,13 +57,12 @@ def cache_prices(conn: dd.DuckDBPyConnection, prices: pd.DataFrame, ticker: str)
             "INSERT INTO prices VALUES (?, ?, ?, ?, ?, ?, ?)",
             [ticker, idx.date(), row['Open'], row['High'], row['Low'], row['Close'], row['Volume']]
         )
-    
         
 def get_cached_price(conn: dd.DuckDBPyConnection, ticker: str, date_str: str) -> float:
     result = conn.execute(
-        "SELECT close FROM prices WHERE ticker = ? AND date = ?",
+        "SELECT close FROM prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT 1",
         [ticker, date_str]
-    # get the first result
+    # get the most recent cached price on or before date_str (handles weekends/holidays and yfinance's exclusive end date)
     ).fetchone()
-    
+
     return result[0] if result else None

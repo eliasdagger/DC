@@ -7,3 +7,4 @@ jupyter
 matplotlib
 pytest
 python-dotenv
+pyyaml

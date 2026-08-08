@@ -52,10 +52,10 @@ def add_client(conn: dd.DuckDBPyConnection, client: Client) -> None:
          client.considerations]
     )
     
-def get_client_data(conn: dd.DuckDBPyConnection, client: Client) -> pd.DataFrame:
+def get_client_data(conn: dd.DuckDBPyConnection, client_id: int) -> pd.DataFrame:
     result = conn.execute(
         "SELECT * FROM clients WHERE id = ?",
-        [client.client_id]
+        [client_id]
     ).df()
 
     return result
