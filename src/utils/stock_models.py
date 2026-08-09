@@ -1,48 +1,16 @@
-"""
-Module: Data Schemas/Blueprints
-
-Problem:
-Client and portfolio data needs structure and validation. Without schemas,
-inconsistent data causes bugs in calculations and storage.
-
-Description:
-Defines Pydantic models for stocks, clients, quantitative fundamentals, and
-qualitative investment theses. Ensures all data matches expected types and
-constraints before entering the system.
-
-Key Classes:
-- Stock: Represents a single stock position
-- Client: Represents a client with holdings
-- QuantFundamentalData: All quantitative metrics for one company
-- QualInvestmentThesis: 4-pillar qualitative judgement for one company
-
-Dependencies:
-- pydantic: For schema validation
-- typing: For type hints
-- datetime: For date fields
-
-Note on Optional:
-Fields that may be missing are typed `Optional[X] = None` rather than
-`X = Field(default=None)`. Both behave the same at runtime, but only the
-first is honest about the type, which keeps Pylance quiet.
-
-Example:
-    >>> stock = Stock(ticker="AAPL", shares=100, purchase_price=150.25, purchase_date=date(2024, 1, 15))
-    >>> client = Client(client_id=1, name="John", risk_tolerance="medium", holdings=[stock], goals="Growth")
-"""
-
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import date
 
+class Company(BaseModel):
+    ticker: str
+    name: str
+    sector: str
+    industry: str
+    type: str
 
 # ── Quant Schema ─────────────────────────────────────────────────────────────
 class AltmanZScore(BaseModel):
-    """The five raw ratios that feed the Altman Z-score.
-
-    The weighted sum lives in src/mcda/screening.py, not here — this model
-    only carries the inputs.
-    """
     working_capital_total_assets: Optional[float] = None
     retained_earnings_total_assets: Optional[float] = None
     ebit_total_assets: Optional[float] = None
@@ -102,13 +70,40 @@ class QuantFundamentalData(BaseModel):
     ticker: str
     sector: Optional[str] = None
     company_type: Optional[str] = None
-    date: Optional[date] = None
+    fiscal_period_end: date
+    filing_available_date: date
 
     valuation: ValuationMetrics = Field(default_factory=ValuationMetrics)
     quality: QualityMetrics = Field(default_factory=QualityMetrics)
     health: HealthMetrics = Field(default_factory=HealthMetrics)
     growth: GrowthMetrics = Field(default_factory=GrowthMetrics)
     capital_return: CapitalReturnMetrics = Field(default_factory=CapitalReturnMetrics)
+
+class FundamentalsRaw(BaseModel):
+    ticker: str
+    fiscal_period_end: date
+    filing_available_date: date
+    revenue: float
+    cogs: float
+    gross_profit: float
+    ebit: float
+    ebitda: float
+    net_income: float
+    cfo: float
+    capex: float
+    total_assets: float
+    total_liabilities: float
+    current_assets: float
+    current_liabilities: float
+    retained_earnings: float
+    cash: float
+    total_debt: float
+    preferred_equity: float
+    shares_outstanding: float
+    dividends_paid: float
+    buybacks: float
+    debt_repaid: float
+    interest_expense: float
 
 
 # ── Qualitative Schema ───────────────────────────────────────────────────────
@@ -145,16 +140,3 @@ class Stock(BaseModel):
     sale_price: Optional[float] = None
     dividends: Optional[float] = None
     dividend_pct: Optional[float] = None
-
-
-class Client(BaseModel):
-    client_id: int
-    name: str = Field(default="Anon")
-    risk_tolerance: str
-    age: Optional[int] = None
-    holdings: List[Stock] = Field(default_factory=list, description="Current portfolio holdings")
-    holdings_value: int = Field(default=0)
-    total_holdings: Optional[int] = None
-    cash_position: Optional[int] = None
-    goals: str
-    considerations: Optional[str] = None

@@ -63,7 +63,7 @@ from typing import Optional
 import pandas as pd
 import duckdb as dd
 
-from src.utils.models import AltmanZScore
+from src.utils.operations_models import AltmanZScore
 from src.utils.config import load_criteria
 
 

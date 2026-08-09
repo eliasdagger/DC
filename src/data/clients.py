@@ -23,7 +23,7 @@ Example:
 
 import pandas as pd
 import duckdb as dd
-from src.utils.models import Client
+from src.utils.operations_models import Client
 
 # from src.utils.models import Client, Stock
 

@@ -14,7 +14,7 @@ import pandas as pd
 import pytest
 from pydantic import ValidationError
 
-from src.utils.models import Stock, Client
+from src.utils.operations_models import Stock, Client
 from src.data.ingestion import get_prices, cache_prices, get_cached_price
 from src.data.clients import create_clients_table, add_client, get_client_data
 from src.data.holdings import create_holdings_table, add_holdings, get_holdings

@@ -66,7 +66,7 @@ is quietly trading on the future.
 import pandas as pd
 import duckdb as dd
 
-from src.utils.models import QuantFundamentalData
+from src.utils.operations_models import QuantFundamentalData
 
 
 def create_fundamentals_table(conn: dd.DuckDBPyConnection) -> None:

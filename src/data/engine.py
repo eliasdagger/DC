@@ -31,7 +31,7 @@ Example:
 import duckdb as dd
 from datetime import date
 
-from src.utils.models import Client, Stock
+from src.utils.operations_models import Client, Stock
 from src.data.clients import create_clients_table, add_client, get_client_data
 from src.data.holdings import create_holdings_table, add_holdings
 from src.data.ingestion import get_prices, cache_prices, get_cached_price
