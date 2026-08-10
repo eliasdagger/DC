@@ -31,20 +31,24 @@ Example:
 import duckdb as dd
 from datetime import date
 
-from src.utils.operations_models import Client, Stock
+from src.utils.operations_models import Client
+from src.utils.stock_models import Stock, Company
 from src.data.clients import create_clients_table, add_client, get_client_data
 from src.data.holdings import create_holdings_table, add_holdings
 from src.data.ingestion import get_prices, cache_prices, get_cached_price
 from src.features.returns import simple_returns, log_returns, cumulative_returns, annualized_return, volatility
 from src.portfolio.reporting import generate_report
+from src.data.companies import create_company_attributes_table, append_company, get_company_attributes
 
 # ── Initialize Database Connection ──────────────────────────────────────────────────────────────────
 conn = dd.connect('dagher.duckdb')
 
 # ── Setup DuckDB Tables ──────────────────────────────────────────────────────────────────
 def initialize_database(conn: dd.DuckDBPyConnection) -> None:
+    create_company_attributes_table(conn)
     create_clients_table(conn)
     create_holdings_table(conn)
+    create_company_attributes_table(conn)
     print("Database Initilized in dagher.duckdb")
     
 # ── Initialize Client Data ──────────────────────────────────────────────────────────────────
@@ -52,6 +56,11 @@ def create_client(conn: dd.DuckDBPyConnection, client: Client, stocks: Stock) ->
     add_client(conn, client)
     add_holdings(conn, stocks, client.client_id)
     print(f"Successfully, added {len(stocks)} under {client.name}. ID={client.client_id}")
+
+# ── Initialize Company Data ──────────────────────────────────────────────────────────────────
+def create_company(conn: dd.DuckDBPyConnection, company: Company) -> None:
+    append_company(conn, company)
+    print(f"Successfully added {company.name} to companies table")
 
 # ── Finanical Metric and Market Data Ingestion ──────────────────────────────────────────────────────────────────
 def add_prices_data(conn: dd.DuckDBPyConnection, ticker: str, start_date: str, end_date: str) -> None:
@@ -61,27 +70,37 @@ def add_prices_data(conn: dd.DuckDBPyConnection, ticker: str, start_date: str, e
 
 # ── Main Method ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    initialize_database(conn)
+
+    ticker1 = "AMZN"
+    ticker2 = "AAPL"
+    
     start_date = '2025-01-01'
     end_date = '2025-12-31'
 
     # Ingest Prices Data (must happen before building Stock objects that read cached prices)
-    add_prices_data(conn, 'AMZN', start_date, end_date)
-    add_prices_data(conn, 'AAPL', start_date, end_date)
+    add_prices_data(conn, ticker1, start_date, end_date)
+    add_prices_data(conn, ticker2, start_date, end_date)
 
-    stocks = [Stock(ticker='AMZN', shares=10, purchase_date=start_date, purchase_price=get_cached_price(conn, 'AMZN', end_date)),
-              Stock(ticker='AAPL', shares=10, purchase_date=start_date, purchase_price=get_cached_price(conn, 'AAPL', end_date), sale_date='2025-06-01', sale_price=get_cached_price(conn, 'AAPL', '2025-06-01'))
-    ]
+    stocks = [Stock(ticker=ticker1, shares=10, purchase_date=start_date, purchase_price=get_cached_price(conn, ticker1, end_date)),
+                  Stock(ticker=ticker2, shares=10, purchase_date=start_date, purchase_price=get_cached_price(conn, ticker2, end_date), sale_date='2025-06-01', sale_price=get_cached_price(conn, ticker2, '2025-06-01'))
+        ]
 
     client1 = Client(client_id=1, name='John', risk_tolerance='medium', holdings=stocks,
-                    #  age=None, holdings_value=, total_holdings=, cash_position=, considerations=None
-                     goals='Saving for retirement'
-                     )
-    
-    # Create Client
-    create_client(conn, client1, stocks)
+                            #  age=None, holdings_value=, total_holdings=, cash_position=, considerations=None
+                             goals='Saving for retirement'
+                             )
 
-    # Portray Client Data
+    company = Company(name="Amazon", ticker="AMZN", sector="Consumer", industry="Retail", company_type="Mature")
+    
+    # Create DuckDB Tables
+    initialize_database(conn)
+
+    # Append and Portray Company
+    create_company(conn, company)   
+    print(get_company_attributes(conn, ticker1).to_string())   
+
+    # Create and Portray Client
+    create_client(conn, client1, stocks)
     print(get_client_data(conn, client1.client_id).to_string())
 
     # Calculate returns
@@ -89,4 +108,5 @@ if __name__ == "__main__":
     print(annualized_return(conn, "AMZN", start_date, end_date))
     print(volatility(simple_returns(conn, "AMZN")))
 
-    generate_report(conn, 1, start_date, end_date)
+    # generate_report(conn, 1, start_date, end_date)    
+    

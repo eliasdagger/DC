@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 import duckdb as dd
-from src.utils.operations_models import Client, Stock
+from src.utils.operations_models import Client
+from src.utils.stock_models import Stock
 from src.features.returns import simple_returns, volatility, annualized_return, sharpe_ratio as single_sharpe
 from src.data.ingestion import get_cached_price
 from src.data.fin_data import RISK_FREE_RATE

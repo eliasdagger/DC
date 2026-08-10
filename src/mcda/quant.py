@@ -29,9 +29,13 @@ Example:
 ────────────────────────────────────────────────────────────────────────────
 IMPLEMENTATION NOTES (step 2 of the Layer 2 plan — write these yourself)
 
-Column count: 4 identity fields + 9 valuation + 10 quality + 10 health
-(5 of which are the unwrapped AltmanZScore ratios) + 4 growth + 4
-capital_return = 41 columns.
+Column count: 3 identity fields (ticker, fiscal_period_end,
+filing_available_date) + 9 valuation + 10 quality + 10 health (5 of which
+are the unwrapped AltmanZScore ratios) + 4 growth + 4 capital_return
+= 40 columns.
+
+Note: sector and company_type are NOT here. They live on Company and are
+joined in on ticker — a company has one sector, stated in one place.
 
 Two things to get right:
 
@@ -43,7 +47,7 @@ Two things to get right:
    HealthMetrics. Sketch:
 
        d = data.model_dump()
-       flat = {"ticker": ..., "sector": ..., "company_type": ..., "date": ...}
+       flat = {"ticker": ..., "fiscal_period_end": ..., "filing_available_date": ...}
        flat.update(d["valuation"])
        flat.update(d["quality"])
        health = d["health"]
@@ -66,7 +70,7 @@ is quietly trading on the future.
 import pandas as pd
 import duckdb as dd
 
-from src.utils.operations_models import QuantFundamentalData
+from src.utils.stock_models import QuantFundamentalData
 
 
 def create_fundamentals_table(conn: dd.DuckDBPyConnection) -> None:

@@ -7,7 +7,7 @@ class Company(BaseModel):
     name: str
     sector: str
     industry: str
-    type: str
+    company_type: str
 
 # ── Quant Schema ─────────────────────────────────────────────────────────────
 class AltmanZScore(BaseModel):
@@ -67,9 +67,8 @@ class CapitalReturnMetrics(BaseModel):
 
 
 class QuantFundamentalData(BaseModel):
+    # sector / company_type deliberately absent — join to Company on ticker.
     ticker: str
-    sector: Optional[str] = None
-    company_type: Optional[str] = None
     fiscal_period_end: date
     filing_available_date: date
 

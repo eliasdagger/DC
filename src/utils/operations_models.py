@@ -35,6 +35,9 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import date
 
+from src.utils.stock_models import Stock
+
+
 class Client(BaseModel):
     client_id: int
     name: str = Field(default="Anon")

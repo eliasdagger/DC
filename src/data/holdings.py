@@ -25,7 +25,7 @@ from typing import List
 import pandas as pd
 import duckdb as dd
 from datetime import date
-from src.utils.operations_models import Stock
+from src.utils.stock_models import Stock
 
 def create_holdings_table(conn: dd.DuckDBPyConnection) -> None:
     conn.execute(

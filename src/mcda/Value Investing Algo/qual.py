@@ -30,7 +30,7 @@ Example:
 import pandas as pd
 import duckdb as dd
 
-from src.utils.operations_models import QualInvestmentThesis
+from src.utils.stock_models import QualInvestmentThesis
 
 
 def create_theses_table(conn: dd.DuckDBPyConnection) -> None:
