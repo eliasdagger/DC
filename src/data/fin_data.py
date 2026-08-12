@@ -13,33 +13,34 @@ from src.utils.stock_models import Company
 
 
 
-# def create_financial_data_table(conn: dd.DuckDBPyConnection) -> None:
-#     conn.execute("""
-#         CREATE TABLE IF NOT EXIST fundementals_raw(
-#             ticker VARCHAR,
-#             fiscal_period_end DATE,
-#             filing_available_date DATE,
-#             revenue FLOAT,
-#             cogs FLOAT,
-#             ebit FLOAT,
-#             net_income FLOAT,
-#             cfo FLOAT,
-#             net_assets FLOAT,
-#             total_liabilities FLOAT,
-#             working_capital FLOAT,
-#             retained_earnings FLOAT,
-#             cash FLOAT,
-#             total_debt FLOAT,
-#             preferred_equity FLOAT,
-#             shares_outstanding FLOAT,
-#             dividends_paid FLOAT,
-#             buybacks FLOAT,
-#             debt_repaid FLOAT
-#             )
-#     """)
+def create_raw_fundementals_table(conn: dd.DuckDBPyConnection) -> None:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTs fundementals_raw(
+            ticker VARCHAR,
+            fiscal_period_end DATE,
+            filing_available_date DATE,
+            revenue FLOAT,
+            cogs FLOAT,
+            ebit FLOAT,
+            net_income FLOAT,
+            cfo FLOAT,
+            net_assets FLOAT,
+            total_liabilities FLOAT,
+            working_capital FLOAT,
+            retained_earnings FLOAT,
+            cash FLOAT,
+            total_debt FLOAT,
+            preferred_equity FLOAT,
+            shares_outstanding FLOAT,
+            dividends_paid FLOAT,
+            buybacks FLOAT,
+            debt_repaid FLOAT
+            )
+    """)
 
-# Functions Job is persistance, this is why we are passing through a pydantic model
-# def append_company_fundementals(conn: dd.DuckDBPyConnection, ticker: str) -> None:
+def append_raw_fundementals(conn: dd.DuckDBPyConnection, ticker: str) -> None:
+
+    
 
 
 
