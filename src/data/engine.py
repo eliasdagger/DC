@@ -30,6 +30,7 @@ Example:
 
 import duckdb as dd
 from datetime import date
+from typing import Optional
 
 from src.utils.operations_models import Client
 from src.utils.stock_models import Stock, Company
@@ -37,7 +38,7 @@ from src.data.clients import create_clients_table, add_client, get_client_data
 from src.data.holdings import create_holdings_table, add_holdings
 from src.data.ingestion import get_prices, cache_prices, get_cached_price
 from src.features.returns import simple_returns, log_returns, cumulative_returns, annualized_return, volatility
-from src.portfolio.reporting import generate_report
+# from src.portfolio.reporting import generate_report
 from src.data.companies import create_company_attributes_table, append_company, get_company_attributes
 
 # ── Initialize Database Connection ──────────────────────────────────────────────────────────────────
@@ -58,8 +59,8 @@ def create_client(conn: dd.DuckDBPyConnection, client: Client, stocks: Stock) ->
     print(f"Successfully, added {len(stocks)} under {client.name}. ID={client.client_id}")
 
 # ── Initialize Company Data ──────────────────────────────────────────────────────────────────
-def create_company(conn: dd.DuckDBPyConnection, company: Company) -> None:
-    append_company(conn, company)
+def create_company(conn: dd.DuckDBPyConnection, company: Company, as_of_date: date) -> None:
+    append_company(conn, company, as_of_date)
     print(f"Successfully added {company.name} to companies table")
 
 # ── Finanical Metric and Market Data Ingestion ──────────────────────────────────────────────────────────────────
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     initialize_database(conn)
 
     # Append and Portray Company
-    create_company(conn, company)   
+    create_company(conn, company, None)   
     print(get_company_attributes(conn, ticker1).to_string())   
 
     # Create and Portray Client

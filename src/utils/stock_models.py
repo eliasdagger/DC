@@ -104,6 +104,12 @@ class FundamentalsRaw(BaseModel):
     debt_repaid: float
     interest_expense: float
 
+    # Beneish M-Score inputs — Optional because they legitimately gap for
+    # banks/REITs (which Beneish doesn't apply to). See configs/xbrl_tags.yaml.
+    receivables: Optional[float] = None
+    net_ppe: Optional[float] = None
+    sga: Optional[float] = None
+
 
 # ── Qualitative Schema ───────────────────────────────────────────────────────
 class QualInvestmentThesis(BaseModel):

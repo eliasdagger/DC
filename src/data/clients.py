@@ -9,13 +9,15 @@ Operations include: creating named tables, ensuring no redundencies, allocating
 essential Client data in a ordered manner, and retrieving desired information.  
 
 Key Functions:
-- create_clients_table: Creates a table of clients and their respective information.
+- create_clients_table: Creates a table of clients and their information.
 - add_client: Fills in client data into 'clients' table
 - get_client_data: Retrieves client data
+- all_client_data: Retrieves a df of all clients and their information
 
 Dependencies:
 - pandas: Efficiently return the table via .df() method 
 - duckdb: Store and query data locally
+- Pydantic: Data organisation and configuration
 
 Example:
     >>> c1 = Client(id=123, name="John", risk_tolerance="High", holdings=List[Stock], goals="retirement")
@@ -43,7 +45,6 @@ def create_clients_table(conn: dd.DuckDBPyConnection) -> None:
 
 
 def add_client(conn: dd.DuckDBPyConnection, client: Client) -> None:
-    print(f"Adding {client.name} to clients table in dagher.duckdb")
     conn.execute(
         "INSERT INTO clients VALUES (?,?,?,?,?,?,?)",
         [client.client_id, client.name, 
@@ -59,6 +60,18 @@ def get_client_data(conn: dd.DuckDBPyConnection, client_id: int) -> pd.DataFrame
     ).df()
 
     return result
+
+def all_clients_data(conn: dd.DuckDBPyConnection) -> pd.DataFrame:
+    res = conn.excecute(
+        "SELECT * from clients"
+    ).df()
+
+    return res
+
+
+conn = dd.connect('dagher.duckdb')
+add_client()
+print(all_clients_data(conn))
 
 
 

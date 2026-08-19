@@ -1,0 +1,312 @@
+# DC — XBRL tag map for SEC EDGAR ingestion
+#
+# Maps FundamentalsRaw field names to the us-gaap tags companies actually file.
+# Validated against 32 companies across 8 sectors (see docs/edgar_coverage.md).
+#
+# ── How to use ───────────────────────────────────────────────────────────────
+# For each field, walk `tags` in order and take the FIRST value available for
+# each fiscal period — not the first tag that exists. Coverage is often partial,
+# so tags stitch together across time:
+#
+#     s = pd.Series(dtype=float)
+#     for tag in tags:
+#         s = s.combine_first(series_for(tag))
+#
+# Order matters. Earlier = more authoritative. A company's own reported figure
+# always beats one you derived.
+#
+# ── kind ─────────────────────────────────────────────────────────────────────
+# duration : measured over a span (income statement, cash flow). Has `start`.
+#            MUST filter to 350-380 days or you pick up quarterly figures that
+#            are mislabeled fp=FY inside a 10-K. This is not optional — it
+#            silently corrupts every margin and growth calculation.
+# instant  : point in time (balance sheet). No `start` key at all.
+#            Reject any record that HAS a start.
+
+
+duration_days: [350, 380]        # what counts as an annual period
+min_year: 2010                   # XBRL before ~2009 is unreliable
+accepted_forms: ["10-K", "10-K/A"]
+
+
+# ── Directly tagged fields ───────────────────────────────────────────────────
+fields:
+
+  revenue:
+    kind: duration
+    tags:
+      - RevenueFromContractWithCustomerExcludingAssessedTax   # ASC 606, 2016+
+      - RevenueFromContractWithCustomerIncludingAssessedTax
+      - Revenues
+      - SalesRevenueNet                                       # pre-2018 standard
+      - SalesRevenueGoodsNet
+      - SalesRevenueServicesNet
+      - RevenuesNetOfInterestExpense                          # banks
+      - InterestAndDividendIncomeOperating                    # banks
+    note: >
+      ASC 606 split this in ~2016-2018. You need both the new and retired tags
+      or history stops at 2016. Banks report revenue net of interest expense.
+
+  cogs:
+    kind: duration
+    tags:
+      - CostOfGoodsAndServicesSold
+      - CostOfRevenue
+      - CostOfGoodsSold
+      - CostOfServices
+      - CostOfGoodsSoldExcludingDepreciationDepletionAndAmortization
+    note: >
+      STRUCTURALLY ABSENT for banks (0/5 coverage) and most REITs. Service and
+      utility businesses often have no cost-of-goods line at all. Do not treat
+      absence as a data error.
+
+  sga:
+    kind: duration
+    tags:
+      - SellingGeneralAndAdministrativeExpense
+      - GeneralAndAdministrativeExpense
+    note: >
+      Beneish M-Score SGAI input. 140/180 coverage; gaps are mostly banks/REITs,
+      which Beneish does not apply to anyway.
+
+  ebit:
+    kind: duration
+    tags:
+      - OperatingIncomeLoss
+      - IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest
+      - IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments
+
+  net_income:
+    kind: duration
+    tags: [NetIncomeLoss, ProfitLoss]
+
+  cfo:
+    kind: duration
+    tags:
+      - NetCashProvidedByUsedInOperatingActivities
+      - NetCashProvidedByUsedInOperatingActivitiesContinuingOperations
+
+  capex:
+    kind: duration
+    tags:
+      - PaymentsToAcquirePropertyPlantAndEquipment
+      - PaymentsToAcquireProductiveAssets
+      - PaymentsForCapitalImprovements
+      - PaymentsToAcquireRealEstate            # REITs
+      - PaymentsToAcquireOilAndGasProperty     # energy
+    note: >
+      Weak for banks (6.2/16). Their PaymentsToAcquire* tags are securities
+      purchases, NOT capex — do not substitute them, the number means
+      something completely different.
+
+  interest_expense:
+    kind: duration
+    tags:
+      - InterestExpense
+      - InterestAndDebtExpense                 # materials/chemicals (ALB, APP) — 14/180
+      - InterestExpenseNonoperating
+      - InterestExpenseDebt
+      - InterestIncomeExpenseNet               # banks report this net
+      - InterestExpenseBorrowings
+      - InterestPaidNet                        # LAST RESORT: cash-flow item, not income-statement
+    note: >
+      InterestPaidNet is a fallback of last resort — it's interest actually PAID
+      (cash flow statement), not interest EXPENSE (income statement). They differ
+      by accruals. It covers 136/180 companies, but only use it when nothing above
+      is available, and know the number means something slightly different.
+      Many low-debt companies (ANET, ALGN, AXON) legitimately report NO interest
+      expense — their long-term debt is zero, so absence means ~0, not missing.
+
+  dividends_paid:
+    kind: duration
+    tags:
+      - PaymentsOfDividendsCommonStock
+      - PaymentsOfOrdinaryDividends            # JNJ, PFE and others use this
+      - DividendsCommonStockCash
+      - PaymentsOfDividends
+
+  buybacks:
+    kind: duration
+    tags:
+      - PaymentsForRepurchaseOfCommonStock
+      - PaymentsForRepurchaseOfEquity
+      - TreasuryStockValueAcquiredCostMethod
+
+  debt_repaid:
+    kind: duration
+    tags:
+      - RepaymentsOfLongTermDebt
+      - RepaymentsOfDebt
+      - RepaymentsOfDebtMaturingInMoreThanThreeMonths    # MSFT
+      - RepaymentsOfLongTermDebtAndCapitalSecurities
+      - RepaymentsOfSeniorDebt
+
+  total_assets:
+    kind: instant
+    tags: [Assets]
+
+  equity:
+    kind: instant
+    tags:
+      - StockholdersEquity
+      - StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest
+
+  current_assets:
+    kind: instant
+    tags: [AssetsCurrent]
+    note: >
+      ZERO for banks, sparse for REITs (6.4/16). They file unclassified balance
+      sheets with no current/non-current split. Structural — nothing to fix.
+
+  current_liabilities:
+    kind: instant
+    tags: [LiabilitiesCurrent]
+    note: Same structural absence as current_assets.
+
+  receivables:
+    kind: instant
+    tags:
+      - AccountsReceivableNetCurrent
+      - ReceivablesNetCurrent
+      - AccountsReceivableNet
+    note: Beneish M-Score DSRI input. 153/180 coverage.
+
+  net_ppe:
+    kind: instant
+    tags:
+      - PropertyPlantAndEquipmentNet
+      - PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization
+    note: >
+      Beneish M-Score AQI/DEPI input. 163/180 coverage on the pure tag.
+      DECISION FLAG: the second tag includes leased right-of-use assets (ASC 842,
+      2019+). Companies like AMZN switched tags in 2020, so the fallback fills a
+      2020-2023 gap — but the switch year shows a definitional jump
+      (AMZN 2019=72.7B pure -> 2020=113.1B lease-incl) that is NOT real growth.
+      Beneish DEPI/AQI compare consecutive years, so treat the transition year's
+      M-Score with suspicion. If Beneish precision matters more than coverage,
+      drop the second tag and accept the gap instead.
+
+  retained_earnings:
+    kind: instant
+    tags: [RetainedEarningsAccumulatedDeficit]
+
+  cash:
+    kind: instant
+    tags:
+      - CashAndCashEquivalentsAtCarryingValue
+      - CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents
+      - CashAndDueFromBanks                    # banks
+
+  total_debt:
+    kind: instant
+    tags:
+      - LongTermDebt
+      - LongTermDebtNoncurrent
+      - DebtLongtermAndShorttermCombinedAmount
+      - LongTermDebtAndCapitalLeaseObligations
+      - UnsecuredDebt                          # insurers (AIZ) — 16yr coverage
+      - SeniorNotes
+    note: >
+      Banks and insurers report debt by instrument (senior notes, unsecured,
+      subordinated) rather than a single LongTermDebt line, so coverage is
+      partial (13.6/16 for financials). The variants above catch the common
+      cases; a fully general bank debt figure needs summing instrument-level
+      tags, which is out of scope for the screening universe.
+
+  preferred_equity:
+    kind: instant
+    tags: [PreferredStockValue, PreferredStockValueOutstanding, PreferredStockIncludingAdditionalPaidInCapital]
+    note: >
+      Validated across 180 companies: 95 have NO preferred-stock tag at all, and
+      in nearly every case that's because the company HAS no preferred stock.
+      Treat missing as 0.0, not unknown — the one field where that is safe.
+
+  shares_outstanding:
+    kind: instant
+    tags: [CommonStockSharesOutstanding, CommonStockSharesIssued]
+    note: >
+      Unit is "shares", not "USD". Needs a price to become market cap.
+      ~16/180 companies gap here on the annual-only filter because they report
+      shares on the cover page (dei taxonomy) rather than in us-gaap — worth a
+      dei:EntityCommonStockSharesOutstanding fallback if you need full coverage.
+
+
+# ── Helper fields (inputs to derivations, not stored directly) ───────────────
+helpers:
+
+  gross_profit_tag:
+    kind: duration
+    tags: [GrossProfit]
+    note: >
+      Only tech files this reliably (14.4/16). Amazon abandoned it in 2009.
+      Zero for banks, REITs, energy, utilities. Must be derived.
+
+  liabilities_tag:
+    kind: instant
+    tags: [Liabilities]
+    note: Many companies present no total-liabilities subtotal. Derive instead.
+
+  liabilities_and_equity:
+    kind: instant
+    tags: [LiabilitiesAndStockholdersEquity]
+
+  dep_amort_combined:
+    kind: duration
+    tags:
+      - DepreciationDepletionAndAmortization
+      - DepreciationAmortizationAndAccretionNet
+      - DepreciationAndAmortization
+
+  depreciation_only:
+    kind: duration
+    tags: [Depreciation]
+
+  amortization_only:
+    kind: duration
+    tags: [AmortizationOfIntangibleAssets]
+
+
+# ── Derivations, applied after tag coalescing ────────────────────────────────
+# Each falls back only where the reported tag left a gap.
+derivations:
+
+  gross_profit:
+    formula: gross_profit_tag ?? (revenue - cogs)
+    lifts: "Consumer 3.6 -> 13.2, Technology 10.8 -> 14.4"
+
+  total_liabilities:
+    formula: liabilities_tag ?? (liabilities_and_equity - equity) ?? (total_assets - equity)
+    lifts: "Consumer 6.6 -> 16.4, Utilities 3.5 -> 16.0, Technology 11.2 -> 15.8"
+    note: Balance sheet identity, so the derived value is exact, not approximate.
+
+  dep_amort:
+    formula: dep_amort_combined ?? (depreciation_only + amortization_only)
+    lifts: "Technology 6.6 -> 14.4"
+    note: MSFT, GOOGL, ORCL file the two components separately, never combined.
+
+  ebitda:
+    formula: ebit + dep_amort
+    note: Approximation. Companies scope operating income differently.
+
+  working_capital:
+    formula: current_assets - current_liabilities
+    note: IMPOSSIBLE for banks. Blocks the first Altman Z component entirely.
+
+  fcf:
+    formula: cfo - capex
+
+
+# ── CIK hazards ──────────────────────────────────────────────────────────────
+# company_tickers.json maps a ticker to whichever CIK CURRENTLY holds it. After
+# a holding-company reorganization the ticker moves to the new entity, and all
+# historical filings stay orphaned under the old CIK.
+#
+# Exxon is a live example:
+#   CIK 2115436  "ExxonMobil Holdings Corp"  94 concepts,   0 years revenue  <- what the map gives you
+#   CIK 34088    "EXXON MOBIL CORP"         438 concepts,  17 years revenue  <- where the data is
+#
+# Detection: after fetching, check concept count and history length. Under ~150
+# concepts or under 5 years for an established company means look for a
+# predecessor CIK. Then override here.
+cik_overrides:
+  XOM: "0000034088"

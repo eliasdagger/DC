@@ -59,7 +59,7 @@ def create_company_attributes_table(conn: dd.DuckDBPyConnection) -> None:
 def append_company(conn: dd.DuckDBPyConnection, company: Company, as_of_date: Optional[str] = None) -> None:
     """Append a company row only if it differs from its latest entry. 
     This will allow for backtesting and companies type evolution over time"""
-    if not as_of_date:
+    if as_of_date is None:
         as_of_date = date.today().strftime("%Y-%m-%d")
 
     latest = get_company_attributes(conn, company.ticker, as_of_date)
@@ -90,7 +90,7 @@ def get_company_attributes(conn: dd.DuckDBPyConnection, ticker: str, as_of_date:
         LIMIT 1
         """,
         [ticker, as_of_date]
-    ).fetchdf()
+    ).df()
 
     if res.empty:
         return None

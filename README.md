@@ -165,6 +165,32 @@ pytest tests/
 
 See `docs/` for detailed architecture, schema, and methodology.
 
+- [`architecture.md`](docs/architecture.md) — layer model, data flow, design decisions
+- [`data_schema.md`](docs/data_schema.md) — every table, column, and join
+- [`edgar_coverage.md`](docs/edgar_coverage.md) — XBRL tag coverage study across 32 companies
+- [`sector_applicability.md`](docs/sector_applicability.md) — which metrics are valid for which sectors
+
+## Development notes
+
+Built with AI assistance (Claude Code). Specifically:
+
+**AI-generated:**
+- The XBRL tag map (`configs/xbrl_tags.yaml`) and the coverage study behind it,
+  produced by running `scripts/01_fetch.py` through `04_validate.py` across
+  32 companies in 8 sectors
+- Documentation in `docs/`
+
+**Human-designed:**
+- System architecture and database schema
+- The slowly-changing-dimension design for company attributes, so a company
+  reclassifying from Early-Stage to Mature doesn't retroactively rescore history
+- Point-in-time correctness: separating `fiscal_period_end` from
+  `filing_available_date`, and dropping restatements in favour of as-filed values
+- Scoring methodology and the qualitative pillar framework
+- Data source selection (SEC EDGAR over yfinance/paid APIs for fundamentals)
+
+Ingestion, screening, and scoring logic is written by hand.
+
 ## Author
 
 Built by Elie Dagher as Dagher Capital's quantitative infrastructure.

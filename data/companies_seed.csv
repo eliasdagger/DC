@@ -1,0 +1,504 @@
+ticker,name,sector,industry,company_type,cik,type_signal
+MMM,3M,Industrials,Industrial Conglomerates,Mature,66740,3yr rev CAGR -10%
+AOS,A. O. Smith,Industrials,Building Products,Mature,91142,3yr rev CAGR 1%
+ABT,Abbott Laboratories,Healthcare,Health Care Equipment,Mature,1800,3yr rev CAGR 1%
+ABBV,AbbVie,Healthcare,Biotechnology,Mature,1551152,3yr rev CAGR 2%
+ACN,Accenture,Technology,IT Consulting & Other Services,Mature,1467373,3yr rev CAGR 4%
+ADBE,Adobe Inc.,Technology,Application Software,Mature,796343,3yr rev CAGR 11%
+AMD,Advanced Micro Devices,Technology,Semiconductors,Mature,2488,3yr rev CAGR 14%
+AES,AES Corporation,Utilities,Independent Power Producers & Energy Traders,Mature,874761,3yr rev CAGR -1%
+AFL,Aflac,Financials,Life & Health Insurance,Mature,4977,3yr rev CAGR -4%
+A,Agilent Technologies,Healthcare,Life Sciences Tools & Services,Mature,1090872,3yr rev CAGR 0%
+APD,Air Products,Materials,Industrial Gases,Mature,2969,3yr rev CAGR -2%
+ABNB,Airbnb,Consumer,"Hotels, Resorts & Cruise Lines",Mature,1559720,3yr rev CAGR 13%
+AKAM,Akamai Technologies,Technology,Internet Services & Infrastructure,Mature,1086222,3yr rev CAGR 8%
+ALB,Albemarle Corporation,Materials,Specialty Chemicals,Mature,915913,3yr rev CAGR -11%
+ARE,Alexandria Real Estate Equities,REIT,Office REITs,Mature,1035443,sparse
+ALGN,Align Technology,Healthcare,Health Care Supplies,Mature,1097149,3yr rev CAGR 3%
+ALLE,Allegion,Industrials,Building Products,Mature,1579241,3yr rev CAGR 8%
+LNT,Alliant Energy,Utilities,Electric Utilities,Mature,352541,3yr rev CAGR 1%
+ALL,Allstate,Financials,Property & Casualty Insurance,Mature,899051,3yr rev CAGR 10%
+GOOGL,Alphabet Inc. (Class A),Technology,Interactive Media & Services,Mature,1652044,3yr rev CAGR 13%
+GOOG,Alphabet Inc. (Class C),Technology,Interactive Media & Services,Mature,1652044,3yr rev CAGR 13%
+MO,Altria,Consumer,Tobacco,Mature,764180,3yr rev CAGR -2%
+AMZN,Amazon,Consumer,Broadline Retail,Mature,1018724,3yr rev CAGR 12%
+AMCR,Amcor,Materials,Paper & Plastic Packaging Products & Materials,High-Growth,1748790,3yr rev CAGR 17%
+AEE,Ameren,Utilities,Multi-Utilities,Mature,1002910,3yr rev CAGR 3%
+AEP,American Electric Power,Utilities,Electric Utilities,Mature,4904,3yr rev CAGR 4%
+AXP,American Express,Financials,Consumer Finance,Mature,4962,3yr rev CAGR 6%
+AIG,American International Group,Financials,Multi-line Insurance,Mature,5272,3yr rev CAGR -22%
+AMT,American Tower,REIT,Telecom Tower REITs,Mature,1053507,3yr rev CAGR 3%
+AWK,American Water Works,Utilities,Water Utilities,Mature,1410636,3yr rev CAGR 11%
+AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,Mature,820027,3yr rev CAGR 10%
+AME,Ametek,Industrials,Electrical Components & Equipment,Mature,1037868,3yr rev CAGR 6%
+AMGN,Amgen,Healthcare,Biotechnology,Mature,318154,3yr rev CAGR 12%
+APH,Amphenol,Technology,Electronic Components,High-Growth,820313,3yr rev CAGR 22%
+ADI,Analog Devices,Technology,Semiconductors,Mature,6281,3yr rev CAGR -3%
+AON,Aon plc,Financials,Insurance Brokers,Mature,315293,3yr rev CAGR 11%
+APA,APA Corporation,Energy,Oil & Gas Exploration & Production,Mature,1841666,sparse
+APO,Apollo Global Management,Financials,Asset Management & Custody Banks,High-Growth,1858681,3yr rev CAGR 43%
+AAPL,Apple Inc.,Technology,"Technology Hardware, Storage & Peripherals",Mature,320193,3yr rev CAGR 2%
+AMAT,Applied Materials,Technology,Semiconductor Materials & Equipment,Mature,6951,3yr rev CAGR 3%
+APP,AppLovin,Technology,Advertising,High-Growth,1751008,3yr rev CAGR 25%
+APTV,Aptiv,Consumer,Automotive Parts & Equipment,Mature,1521332,3yr rev CAGR 5%
+ACGL,Arch Capital Group,Financials,Property & Casualty Insurance,High-Growth,947484,3yr rev CAGR 28%
+ADM,Archer Daniels Midland,Consumer,Agricultural Products & Services,Mature,7084,3yr rev CAGR -3%
+ARES,Ares Management,Financials,Asset Management & Custody Banks,High-Growth,1176948,3yr rev CAGR 22%
+ANET,Arista Networks,Technology,Communications Equipment,High-Growth,1596532,3yr rev CAGR 27%
+AJG,Arthur J. Gallagher & Co.,Financials,Insurance Brokers,High-Growth,354190,3yr rev CAGR 18%
+AIZ,Assurant,Financials,Multi-line Insurance,Mature,1267238,3yr rev CAGR 8%
+T,AT&T,Technology,Integrated Telecommunication Services,Mature,732717,3yr rev CAGR 1%
+ATO,Atmos Energy,Utilities,Gas Utilities,Mature,731802,3yr rev CAGR 4%
+ADSK,Autodesk,Technology,Application Software,Mature,769397,3yr rev CAGR 13%
+ADP,Automatic Data Processing,Industrials,Human Resource & Employment Services,Mature,8670,3yr rev CAGR 7%
+AZO,AutoZone,Consumer,Automotive Retail,Mature,866787,3yr rev CAGR 5%
+AVB,AvalonBay Communities,REIT,Multi-Family Residential REITs,Mature,915912,3yr rev CAGR 4%
+AVY,Avery Dennison,Materials,Paper & Plastic Packaging Products & Materials,Mature,8818,3yr rev CAGR -1%
+AXON,Axon Enterprise,Industrials,Aerospace & Defense,High-Growth,1069183,3yr rev CAGR 33%
+BKR,Baker Hughes,Energy,Oil & Gas Equipment & Services,Mature,1701605,3yr rev CAGR 9%
+BALL,Ball Corporation,Materials,"Metal, Glass & Plastic Containers",Mature,9389,3yr rev CAGR 9%
+BAC,Bank of America,Financials,Diversified Banks,Mature,70858,3yr rev CAGR 6%
+BAX,Baxter International,Healthcare,Health Care Equipment,Mature,10456,3yr rev CAGR -9%
+BDX,Becton Dickinson,Healthcare,Health Care Equipment,Mature,10795,3yr rev CAGR 5%
+BRK-B,Berkshire Hathaway,Financials,Multi-Sector Holdings,Mature,1067983,3yr rev CAGR 6%
+BBY,Best Buy,Consumer,Computer & Electronics Retail,Mature,764478,3yr rev CAGR -3%
+TECH,Bio-Techne,Healthcare,Life Sciences Tools & Services,Mature,842023,3yr rev CAGR 3%
+BIIB,Biogen,Healthcare,Biotechnology,Mature,875045,3yr rev CAGR -1%
+BLK,BlackRock,Financials,Asset Management & Custody Banks,Mature,2012383,3yr rev CAGR 11%
+BX,Blackstone Inc.,Financials,Asset Management & Custody Banks,High-Growth,1393818,3yr rev CAGR 19%
+XYZ,"Block, Inc.",Financials,Transaction & Payment Processing Services,Mature,1512673,3yr rev CAGR 11%
+BNY,BNY Mellon,Financials,Asset Management & Custody Banks,Mature,1390777,3yr rev CAGR 7%
+BA,Boeing,Industrials,Aerospace & Defense,Mature,12927,3yr rev CAGR 10%
+BKNG,Booking Holdings,Consumer,"Hotels, Resorts & Cruise Lines",High-Growth,1075531,3yr rev CAGR 16%
+BSX,Boston Scientific,Healthcare,Health Care Equipment,High-Growth,885725,3yr rev CAGR 17%
+BMY,Bristol Myers Squibb,Healthcare,Pharmaceuticals,Mature,14272,3yr rev CAGR 1%
+AVGO,Broadcom,Technology,Semiconductors,High-Growth,1730168,3yr rev CAGR 24%
+BR,Broadridge Financial Solutions,Industrials,Data Processing & Outsourced Services,Mature,1383312,3yr rev CAGR 7%
+BRO,Brown & Brown,Financials,Insurance Brokers,High-Growth,79282,3yr rev CAGR 18%
+BF-B,Brown–Forman,Consumer,Distillers & Vintners,Mature,14693,3yr rev CAGR -2%
+BLDR,Builders FirstSource,Industrials,Building Products,Mature,1316835,3yr rev CAGR -13%
+BG,Bunge Global,Consumer,Agricultural Products & Services,Mature,1996862,3yr rev CAGR -7%
+BXP,"BXP, Inc.",REIT,Office REITs,Mature,1037540,3yr rev CAGR 4%
+CHRW,C.H. Robinson,Industrials,Air Freight & Logistics,Mature,1043277,3yr rev CAGR -13%
+CDNS,Cadence Design Systems,Technology,Application Software,Mature,813672,3yr rev CAGR 14%
+CPT,Camden Property Trust,REIT,Multi-Family Residential REITs,High-Growth,906345,3yr rev CAGR 36%
+COF,Capital One,Financials,Consumer Finance,Mature,927628,3yr rev CAGR 14%
+CAH,Cardinal Health,Healthcare,Health Care Distributors,Mature,721371,3yr rev CAGR 7%
+CCL,Carnival Corporation,Consumer,"Hotels, Resorts & Cruise Lines",High-Growth,815097,3yr rev CAGR 30%
+CARR,Carrier Global,Industrials,Building Products,Mature,1783180,3yr rev CAGR 2%
+CVNA,Carvana,Consumer,Automotive Retail,Mature,1690820,3yr rev CAGR 14%
+CASY,Casey's,Consumer,Food Retail,Mature,726958,3yr rev CAGR 5%
+CAT,Caterpillar Inc.,Industrials,Construction Machinery & Heavy Transportation Equipment,Mature,18230,3yr rev CAGR 4%
+CBOE,Cboe Global Markets,Financials,Financial Exchanges & Data,High-Growth,1374310,3yr rev CAGR 53%
+CBRE,CBRE Group,REIT,Real Estate Services,Mature,1138118,3yr rev CAGR 10%
+CDW,CDW Corporation,Technology,Technology Distributors,Mature,1402057,3yr rev CAGR -2%
+COR,Cencora,Healthcare,Health Care Distributors,Mature,1140859,3yr rev CAGR 10%
+CNC,Centene Corporation,Healthcare,Managed Health Care,Mature,1071739,3yr rev CAGR 9%
+CNP,CenterPoint Energy,Utilities,Multi-Utilities,Mature,1130310,3yr rev CAGR 0%
+CF,CF Industries,Materials,Fertilizers & Agricultural Chemicals,Mature,1324404,3yr rev CAGR -14%
+CRL,Charles River Laboratories,Healthcare,Life Sciences Tools & Services,Mature,1100682,3yr rev CAGR 0%
+SCHW,Charles Schwab Corporation,Financials,Investment Banking & Brokerage,Mature,316709,3yr rev CAGR 5%
+CHTR,Charter Communications,Technology,Cable & Satellite,Mature,1091667,3yr rev CAGR 0%
+CVX,Chevron Corporation,Energy,Integrated Oil & Gas,Mature,93410,3yr rev CAGR -8%
+CMG,Chipotle Mexican Grill,Consumer,Restaurants,Mature,1058090,3yr rev CAGR 11%
+CB,Chubb Limited,Financials,Property & Casualty Insurance,Mature,896159,3yr rev CAGR 11%
+CHD,Church & Dwight,Consumer,Household Products,Mature,313927,3yr rev CAGR 5%
+CIEN,Ciena,Technology,Communications Equipment,Mature,936395,3yr rev CAGR 10%
+CI,Cigna,Healthcare,Health Care Services,High-Growth,1739940,3yr rev CAGR 15%
+CINF,Cincinnati Financial,Financials,Property & Casualty Insurance,High-Growth,20286,3yr rev CAGR 24%
+CTAS,Cintas,Industrials,Diversified Support Services,Mature,723254,3yr rev CAGR 10%
+CSCO,Cisco,Technology,Communications Equipment,Mature,858877,3yr rev CAGR 3%
+C,Citigroup,Financials,Diversified Banks,Mature,831001,3yr rev CAGR 4%
+CFG,Citizens Financial Group,Financials,Regional Banks,Mature,759944,3yr rev CAGR 8%
+CLX,Clorox,Consumer,Household Products,Mature,21076,3yr rev CAGR -0%
+CME,CME Group,Financials,Financial Exchanges & Data,Mature,1156375,3yr rev CAGR 9%
+CMS,CMS Energy,Utilities,Multi-Utilities,Mature,811156,3yr rev CAGR -0%
+KO,Coca-Cola Company (The),Consumer,Soft Drinks & Non-alcoholic Beverages,Mature,21344,3yr rev CAGR 4%
+CTSH,Cognizant,Technology,IT Consulting & Other Services,Mature,1058290,3yr rev CAGR 3%
+COHR,Coherent Corp.,Technology,Electronic Components,Mature,820318,3yr rev CAGR 11%
+COIN,Coinbase,Financials,Financial Exchanges & Data,High-Growth,1679788,3yr rev CAGR 31%
+CL,Colgate-Palmolive,Consumer,Household Products,Mature,21665,3yr rev CAGR 4%
+CMCSA,Comcast,Technology,Cable & Satellite,Mature,1166691,3yr rev CAGR 1%
+FIX,Comfort Systems USA,Industrials,Construction & Engineering,High-Growth,1035983,3yr rev CAGR 30%
+COP,ConocoPhillips,Energy,Oil & Gas Exploration & Production,Mature,1163165,3yr rev CAGR -5%
+ED,Consolidated Edison,Utilities,Multi-Utilities,Mature,1047862,3yr rev CAGR 3%
+STZ,Constellation Brands,Consumer,Distillers & Vintners,Mature,16918,3yr rev CAGR -1%
+CEG,Constellation Energy,Utilities,Electric Utilities,Mature,1868275,3yr rev CAGR 2%
+COO,Cooper Companies (The),Healthcare,Health Care Supplies,Mature,711404,3yr rev CAGR 7%
+CPRT,Copart,Industrials,Diversified Support Services,High-Growth,900075,3yr rev CAGR 16%
+GLW,Corning Inc.,Technology,Electronic Components,Mature,24741,3yr rev CAGR 3%
+CPAY,Corpay,Financials,Transaction & Payment Processing Services,Mature,1175454,3yr rev CAGR 10%
+CTVA,Corteva,Materials,Fertilizers & Agricultural Chemicals,Mature,1755672,3yr rev CAGR -0%
+CSGP,CoStar Group,REIT,Real Estate Services,Mature,1057352,3yr rev CAGR 14%
+COST,Costco,Consumer,Consumer Staples Merchandise Retail,Mature,909832,3yr rev CAGR 7%
+CRH,CRH plc,Materials,Construction Materials,Mature,849395,3yr rev CAGR 5%
+CRWD,CrowdStrike,Technology,Systems Software,Mature,1535527,sparse
+CCI,Crown Castle,REIT,Telecom Tower REITs,Mature,1051470,3yr rev CAGR -32%
+CSX,CSX Corporation,Industrials,Rail Transportation,Mature,277948,3yr rev CAGR -2%
+CMI,Cummins,Industrials,Construction Machinery & Heavy Transportation Equipment,Mature,26172,3yr rev CAGR 6%
+CVS,CVS Health,Healthcare,Health Care Services,Mature,64803,3yr rev CAGR 8%
+DHR,Danaher Corporation,Healthcare,Life Sciences Tools & Services,Mature,313616,3yr rev CAGR -8%
+DRI,Darden Restaurants,Consumer,Restaurants,Mature,940944,3yr rev CAGR 8%
+DDOG,Datadog,Technology,Application Software,High-Growth,1561550,3yr rev CAGR 27%
+DVA,DaVita,Healthcare,Health Care Services,Mature,927066,3yr rev CAGR 6%
+DECK,Deckers Brands,Consumer,Footwear,Mature,910521,3yr rev CAGR 15%
+DE,Deere & Company,Industrials,Agricultural & Farm Machinery,Mature,315189,3yr rev CAGR -5%
+DELL,Dell Technologies,Technology,"Technology Hardware, Storage & Peripherals",Mature,1571996,3yr rev CAGR 4%
+DAL,Delta Air Lines,Industrials,Passenger Airlines,Mature,27904,3yr rev CAGR 8%
+DVN,Devon Energy,Energy,Oil & Gas Exploration & Production,Mature,1090012,3yr rev CAGR -5%
+DXCM,Dexcom,Healthcare,Health Care Equipment,High-Growth,1093557,3yr rev CAGR 17%
+FANG,Diamondback Energy,Energy,Oil & Gas Exploration & Production,High-Growth,1539838,3yr rev CAGR 16%
+DLR,Digital Realty,REIT,Data Center REITs,Mature,1297996,3yr rev CAGR 9%
+DG,Dollar General,Consumer,Consumer Staples Merchandise Retail,Mature,29534,3yr rev CAGR 4%
+DLTR,Dollar Tree,Consumer,Consumer Staples Merchandise Retail,Mature,935703,3yr rev CAGR -12%
+D,Dominion Energy,Utilities,Multi-Utilities,Mature,715957,3yr rev CAGR -2%
+DPZ,Domino's,Consumer,Restaurants,Mature,1286681,3yr rev CAGR 3%
+DASH,DoorDash,Consumer,Specialized Consumer Services,High-Growth,1792789,3yr rev CAGR 28%
+DOV,Dover Corporation,Industrials,Industrial Machinery & Supplies & Components,Mature,29905,3yr rev CAGR -2%
+DOW,Dow Inc.,Materials,Commodity Chemicals,Mature,1751788,3yr rev CAGR -11%
+DHI,D. R. Horton,Consumer,Homebuilding,Mature,882184,3yr rev CAGR 1%
+DTE,DTE Energy,Utilities,Multi-Utilities,Mature,936340,3yr rev CAGR 1%
+DUK,Duke Energy,Utilities,Electric Utilities,Mature,1326160,3yr rev CAGR -3%
+DD,DuPont,Industrials,Industrial Conglomerates,Mature,1666700,3yr rev CAGR -19%
+ETN,Eaton Corporation,Industrials,Electrical Components & Equipment,Mature,1551182,3yr rev CAGR 10%
+EBAY,eBay Inc.,Consumer,Broadline Retail,Mature,1065088,3yr rev CAGR 4%
+ECHO,EchoStar,Technology,Wireless Telecommunication Services,High-Growth,1415404,3yr rev CAGR 96%
+ECL,Ecolab,Materials,Specialty Chemicals,Mature,31462,3yr rev CAGR 4%
+EIX,Edison International,Utilities,Electric Utilities,Mature,827052,3yr rev CAGR 4%
+EW,Edwards Lifesciences,Healthcare,Health Care Equipment,Mature,1099800,3yr rev CAGR 4%
+ELV,Elevance Health,Healthcare,Managed Health Care,Mature,1156039,3yr rev CAGR 8%
+EME,Emcor,Industrials,Construction & Engineering,High-Growth,105634,3yr rev CAGR 15%
+EMR,Emerson Electric,Industrials,Electrical Components & Equipment,Mature,32604,3yr rev CAGR -3%
+ETR,Entergy,Utilities,Electric Utilities,Mature,65984,3yr rev CAGR -2%
+EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,Mature,821189,3yr rev CAGR -4%
+EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,Mature,33213,3yr rev CAGR -11%
+EFX,Equifax,Industrials,Research & Consulting Services,Mature,33185,3yr rev CAGR 6%
+EQIX,Equinix,REIT,Data Center REITs,Mature,1101239,3yr rev CAGR 8%
+EQR,Equity Residential,REIT,Multi-Family Residential REITs,Mature,906107,3yr rev CAGR 4%
+ERIE,Erie Indemnity,Financials,Insurance Brokers,Mature,922621,3yr rev CAGR 13%
+ESS,Essex Property Trust,REIT,Multi-Family Residential REITs,Mature,920522,3yr rev CAGR -6%
+EL,Estée Lauder Companies (The),Consumer,Personal Care Products,Mature,1001250,3yr rev CAGR -7%
+EG,Everest Group,Financials,Reinsurance,Mature,1095073,3yr rev CAGR 13%
+EVRG,Evergy,Utilities,Electric Utilities,Mature,1711269,3yr rev CAGR 1%
+ES,Eversource Energy,Utilities,Electric Utilities,Mature,72741,3yr rev CAGR 3%
+EXC,Exelon,Utilities,Electric Utilities,Mature,1109357,3yr rev CAGR 8%
+EXE,Expand Energy,Energy,Oil & Gas Exploration & Production,Mature,895126,3yr rev CAGR 1%
+EXPE,Expedia Group,Consumer,"Hotels, Resorts & Cruise Lines",Mature,1324424,3yr rev CAGR 8%
+EXPD,Expeditors International,Industrials,Air Freight & Logistics,Mature,746515,3yr rev CAGR -13%
+EXR,Extra Space Storage,REIT,Self-Storage REITs,High-Growth,1289490,3yr rev CAGR 16%
+XOM,ExxonMobil,Energy,Integrated Oil & Gas,Mature,2115436,sparse
+FFIV,"F5, Inc.",Technology,Communications Equipment,Mature,1048695,3yr rev CAGR 5%
+FDS,FactSet,Financials,Financial Exchanges & Data,Mature,1013237,3yr rev CAGR 8%
+FICO,Fair Isaac,Technology,Application Software,Mature,814547,3yr rev CAGR 13%
+FAST,Fastenal,Industrials,Trading Companies & Distributors,Mature,815556,3yr rev CAGR 6%
+FRT,Federal Realty Investment Trust,REIT,Retail REITs,Mature,34903,3yr rev CAGR 6%
+FDX,FedEx,Industrials,Air Freight & Logistics,Mature,1048911,3yr rev CAGR 2%
+FDXF,FedEx Freight,Industrials,Cargo Ground Transportation,Mature,2082247,sparse
+FERG,Ferguson Enterprises,Industrials,Building Products,Mature,2011641,3yr rev CAGR 2%
+FIS,Fidelity National Information Services,Financials,Transaction & Payment Processing Services,Mature,1136893,3yr rev CAGR -10%
+FITB,Fifth Third Bancorp,Financials,Regional Banks,Mature,35527,sparse
+FSLR,First Solar,Technology,Semiconductors,High-Growth,1274494,3yr rev CAGR 26%
+FE,FirstEnergy,Utilities,Electric Utilities,Mature,1031296,3yr rev CAGR 7%
+FISV,Fiserv,Financials,Transaction & Payment Processing Services,Mature,798354,3yr rev CAGR 6%
+FLEX,Flex Ltd.,Technology,Electronic Manufacturing Services,Mature,866374,3yr rev CAGR -3%
+F,Ford Motor Company,Consumer,Automobile Manufacturers,Mature,37996,3yr rev CAGR 6%
+FTNT,Fortinet,Technology,Systems Software,High-Growth,1262039,3yr rev CAGR 15%
+FTV,Fortive,Industrials,Industrial Machinery & Supplies & Components,Mature,1659166,3yr rev CAGR -11%
+FOXA,Fox Corporation (Class A),Technology,Broadcasting,Mature,1754301,3yr rev CAGR 5%
+FOX,Fox Corporation (Class B),Technology,Broadcasting,Mature,1754301,3yr rev CAGR 5%
+BEN,Franklin Resources,Financials,Asset Management & Custody Banks,Mature,38777,3yr rev CAGR 2%
+FCX,Freeport-McMoRan,Materials,Copper,Mature,831259,3yr rev CAGR 3%
+GRMN,Garmin,Consumer,Consumer Electronics,Mature,1121788,3yr rev CAGR 14%
+IT,Gartner,Technology,IT Consulting & Other Services,Mature,749251,3yr rev CAGR 6%
+GE,GE Aerospace,Industrials,Aerospace & Defense,Mature,40545,3yr rev CAGR -16%
+GEHC,GE HealthCare,Healthcare,Health Care Equipment,Mature,1932393,3yr rev CAGR 4%
+GEV,GE Vernova,Industrials,Heavy Electrical Equipment,Mature,1996810,3yr rev CAGR 9%
+GEN,Gen Digital,Technology,Systems Software,Mature,849399,3yr rev CAGR 14%
+GNRC,Generac,Industrials,Heavy Electrical Equipment,Mature,1474735,3yr rev CAGR -3%
+GD,General Dynamics,Industrials,Aerospace & Defense,Mature,40533,3yr rev CAGR 10%
+GIS,General Mills,Consumer,Packaged Foods & Meats,Mature,40704,3yr rev CAGR -3%
+GM,General Motors,Consumer,Automobile Manufacturers,Mature,1467858,3yr rev CAGR 5%
+GPC,Genuine Parts Company,Consumer,Distributors,Mature,40987,3yr rev CAGR 3%
+GILD,Gilead Sciences,Healthcare,Biotechnology,Mature,882095,3yr rev CAGR 3%
+GPN,Global Payments,Financials,Transaction & Payment Processing Services,Mature,1123360,3yr rev CAGR -5%
+GL,Globe Life,Financials,Life & Health Insurance,Mature,320335,3yr rev CAGR 5%
+GDDY,GoDaddy,Technology,Internet Services & Infrastructure,Mature,1609711,3yr rev CAGR 7%
+GS,Goldman Sachs,Financials,Investment Banking & Brokerage,Mature,886982,3yr rev CAGR 7%
+HAL,Halliburton,Energy,Oil & Gas Equipment & Services,Mature,45012,3yr rev CAGR -14%
+HIG,Hartford (The),Financials,Property & Casualty Insurance,Mature,874766,3yr rev CAGR 2%
+HAS,Hasbro,Consumer,Leisure Products,Mature,46080,3yr rev CAGR -7%
+HCA,HCA Healthcare,Healthcare,Health Care Facilities,Mature,860730,3yr rev CAGR 8%
+DOC,Healthpeak Properties,REIT,Health Care REITs,Mature,765880,3yr rev CAGR 7%
+HSIC,Henry Schein,Healthcare,Health Care Distributors,Mature,1000228,3yr rev CAGR 1%
+HSY,Hershey Company (The),Consumer,Packaged Foods & Meats,Mature,47111,3yr rev CAGR 4%
+HPE,Hewlett Packard Enterprise,Technology,"Technology Hardware, Storage & Peripherals",Mature,1645590,3yr rev CAGR 6%
+HLT,Hilton Worldwide,Consumer,"Hotels, Resorts & Cruise Lines",Mature,1585689,3yr rev CAGR 11%
+HD,Home Depot (The),Consumer,Home Improvement Retail,Mature,354950,3yr rev CAGR 2%
+HONA,Honeywell Aerospace,Industrials,Aerospace & Defense,Mature,2089271,sparse
+HON,Honeywell Technologies,Industrials,Industrial Conglomerates,Mature,773840,3yr rev CAGR 2%
+HRL,Hormel Foods,Consumer,Packaged Foods & Meats,Mature,48465,3yr rev CAGR -1%
+HST,Host Hotels & Resorts,REIT,Hotel & Resort REITs,Mature,1070750,3yr rev CAGR 8%
+HWM,Howmet Aerospace,Industrials,Aerospace & Defense,Mature,4281,3yr rev CAGR 13%
+HPQ,HP Inc.,Technology,"Technology Hardware, Storage & Peripherals",Mature,47217,3yr rev CAGR -4%
+HUBB,Hubbell Incorporated,Industrials,Industrial Machinery & Supplies & Components,Mature,48898,3yr rev CAGR 6%
+HUM,Humana,Healthcare,Managed Health Care,Mature,49071,3yr rev CAGR 12%
+HBAN,Huntington Bancshares,Financials,Regional Banks,Mature,49196,3yr rev CAGR 6%
+HII,Huntington Ingalls Industries,Industrials,Aerospace & Defense,Mature,1501585,3yr rev CAGR 5%
+IBM,IBM,Technology,IT Consulting & Other Services,Mature,51143,3yr rev CAGR 4%
+IEX,IDEX Corporation,Industrials,Industrial Machinery & Supplies & Components,Mature,832101,3yr rev CAGR 3%
+IDXX,Idexx Laboratories,Healthcare,Health Care Equipment,Mature,874716,3yr rev CAGR 9%
+ITW,Illinois Tool Works,Industrials,Industrial Machinery & Supplies & Components,Mature,49826,3yr rev CAGR 0%
+INCY,Incyte,Healthcare,Biotechnology,Mature,879169,3yr rev CAGR 15%
+IR,Ingersoll Rand,Industrials,Industrial Machinery & Supplies & Components,Mature,1699150,3yr rev CAGR 9%
+PODD,Insulet Corporation,Healthcare,Health Care Equipment,High-Growth,1145197,3yr rev CAGR 37%
+INTC,Intel,Technology,Semiconductors,Mature,50863,3yr rev CAGR -6%
+IBKR,Interactive Brokers,Financials,Investment Banking & Brokerage,High-Growth,1381197,3yr rev CAGR 17%
+ICE,Intercontinental Exchange,Financials,Financial Exchanges & Data,Mature,1571949,3yr rev CAGR 9%
+IFF,International Flavors & Fragrances,Materials,Specialty Chemicals,Mature,51253,3yr rev CAGR -4%
+IP,International Paper,Materials,Paper & Plastic Packaging Products & Materials,Mature,51434,3yr rev CAGR 4%
+INTU,Intuit,Technology,Application Software,Mature,896878,3yr rev CAGR 14%
+ISRG,Intuitive Surgical,Healthcare,Health Care Equipment,High-Growth,1035267,3yr rev CAGR 17%
+IVZ,Invesco,Financials,Asset Management & Custody Banks,Mature,914208,3yr rev CAGR 2%
+INVH,Invitation Homes,REIT,Single-Family Residential REITs,Mature,1687229,3yr rev CAGR 7%
+IQV,IQVIA,Healthcare,Life Sciences Tools & Services,Mature,1478242,3yr rev CAGR 4%
+IRM,Iron Mountain,REIT,Other Specialized REITs,Mature,1020569,3yr rev CAGR 11%
+JBHT,J.B. Hunt,Industrials,Cargo Ground Transportation,Mature,728535,3yr rev CAGR 5%
+JBL,Jabil,Technology,Electronic Manufacturing Services,Mature,898293,3yr rev CAGR -4%
+JKHY,Jack Henry & Associates,Financials,Transaction & Payment Processing Services,Mature,779152,3yr rev CAGR 7%
+J,Jacobs Solutions,Industrials,Construction & Engineering,Mature,52988,3yr rev CAGR 7%
+JNJ,Johnson & Johnson,Healthcare,Pharmaceuticals,Mature,200406,3yr rev CAGR -0%
+JCI,Johnson Controls,Industrials,Building Products,Mature,833444,3yr rev CAGR -2%
+JPM,JPMorgan Chase,Financials,Diversified Banks,Mature,19617,3yr rev CAGR 12%
+KVUE,Kenvue,Consumer,Personal Care Products,Mature,1944048,3yr rev CAGR 0%
+KDP,Keurig Dr Pepper,Consumer,Soft Drinks & Non-alcoholic Beverages,Mature,1418135,3yr rev CAGR 6%
+KEY,KeyCorp,Financials,Regional Banks,Mature,91576,3yr rev CAGR 3%
+KEYS,Keysight Technologies,Technology,Electronic Equipment & Instruments,Mature,1601046,3yr rev CAGR -0%
+KMB,Kimberly-Clark,Consumer,Household Products,Mature,55785,3yr rev CAGR -7%
+KIM,Kimco Realty,REIT,Retail REITs,Mature,879101,3yr rev CAGR 7%
+KMI,Kinder Morgan,Energy,Oil & Gas Storage & Transportation,Mature,1506307,3yr rev CAGR -6%
+KKR,KKR & Co.,Financials,Asset Management & Custody Banks,High-Growth,1404912,3yr rev CAGR 50%
+KLAC,KLA Corporation,Technology,Semiconductor Materials & Equipment,Mature,319201,3yr rev CAGR 9%
+KHC,Kraft Heinz,Consumer,Packaged Foods & Meats,Mature,1637459,sparse
+KR,Kroger,Consumer,Food Retail,Mature,56873,3yr rev CAGR -0%
+LHX,L3Harris,Industrials,Aerospace & Defense,Mature,202058,3yr rev CAGR 6%
+LH,Labcorp,Healthcare,Health Care Services,Mature,920148,3yr rev CAGR -2%
+LRCX,Lam Research,Technology,Semiconductor Materials & Equipment,Mature,707549,3yr rev CAGR 10%
+LVS,Las Vegas Sands,Consumer,Casinos & Gaming,High-Growth,1300514,3yr rev CAGR 47%
+LDOS,Leidos,Industrials,Diversified Support Services,Mature,1336920,3yr rev CAGR 6%
+LEN,Lennar,Consumer,Homebuilding,Mature,920760,3yr rev CAGR 1%
+LII,Lennox International,Industrials,Building Products,Mature,1069202,3yr rev CAGR 3%
+LLY,Lilly (Eli),Healthcare,Pharmaceuticals,High-Growth,59478,3yr rev CAGR 32%
+LIN,Linde plc,Materials,Industrial Gases,Mature,1707925,3yr rev CAGR 1%
+LYV,Live Nation Entertainment,Technology,Movies & Entertainment,Mature,1335258,3yr rev CAGR 15%
+LMT,Lockheed Martin,Industrials,Aerospace & Defense,Mature,936468,3yr rev CAGR 4%
+L,Loews Corporation,Financials,Multi-line Insurance,Mature,60086,3yr rev CAGR 15%
+LOW,Lowe's,Consumer,Home Improvement Retail,Mature,60667,3yr rev CAGR -4%
+LULU,Lululemon Athletica,Consumer,"Apparel, Accessories & Luxury Goods",Mature,1397187,3yr rev CAGR 11%
+LITE,Lumentum,Technology,Communications Equipment,Mature,1633978,3yr rev CAGR -1%
+LYB,LyondellBasell,Materials,Specialty Chemicals,Mature,1489393,3yr rev CAGR -15%
+MTB,M&T Bank,Financials,Regional Banks,Mature,36270,3yr rev CAGR 3%
+MPC,Marathon Petroleum,Energy,Oil & Gas Refining & Marketing,Mature,1510295,3yr rev CAGR -9%
+MAR,Marriott International,Consumer,"Hotels, Resorts & Cruise Lines",Mature,1048286,3yr rev CAGR 8%
+MRSH,Marsh McLennan,Financials,Insurance Brokers,Mature,62709,3yr rev CAGR 9%
+MLM,Martin Marietta Materials,Materials,Construction Materials,Mature,916076,3yr rev CAGR -0%
+MRVL,Marvell Technology,Technology,Semiconductors,Mature,1835632,3yr rev CAGR 11%
+MAS,Masco,Industrials,Building Products,Mature,62996,3yr rev CAGR -4%
+MA,Mastercard,Financials,Transaction & Payment Processing Services,Mature,1141391,3yr rev CAGR 14%
+MKC,McCormick & Company,Consumer,Packaged Foods & Meats,Mature,63754,3yr rev CAGR 3%
+MCD,McDonald's,Consumer,Restaurants,Mature,63908,3yr rev CAGR 5%
+MCK,McKesson Corporation,Healthcare,Health Care Distributors,Mature,927653,3yr rev CAGR 13%
+MDT,Medtronic,Healthcare,Health Care Equipment,Mature,1613103,3yr rev CAGR 5%
+MRK,Merck & Co.,Healthcare,Pharmaceuticals,Mature,310158,3yr rev CAGR 3%
+META,Meta Platforms,Technology,Interactive Media & Services,High-Growth,1326801,3yr rev CAGR 20%
+MET,MetLife,Financials,Life & Health Insurance,Mature,1099219,3yr rev CAGR 5%
+MTD,Mettler Toledo,Healthcare,Life Sciences Tools & Services,Mature,1037646,3yr rev CAGR 1%
+MGM,MGM Resorts,Consumer,Casinos & Gaming,Mature,789570,3yr rev CAGR 10%
+MCHP,Microchip Technology,Technology,Semiconductors,Mature,827054,3yr rev CAGR -18%
+MU,Micron Technology,Technology,Semiconductors,Mature,723125,3yr rev CAGR 7%
+MSFT,Microsoft,Technology,Systems Software,High-Growth,789019,3yr rev CAGR 16%
+MAA,Mid-America Apartment Communities,REIT,Multi-Family Residential REITs,Mature,912595,3yr rev CAGR 3%
+MRNA,Moderna,Healthcare,Biotechnology,Mature,1682852,3yr rev CAGR -53%
+TAP,Molson Coors Beverage Company,Consumer,Brewers,Mature,24545,3yr rev CAGR 1%
+MDLZ,Mondelez International,Consumer,Packaged Foods & Meats,Mature,1103982,3yr rev CAGR 7%
+MPWR,Monolithic Power Systems,Technology,Semiconductors,High-Growth,1280452,3yr rev CAGR 16%
+MNST,Monster Beverage,Consumer,Soft Drinks & Non-alcoholic Beverages,Mature,865752,3yr rev CAGR 10%
+MCO,Moody's Corporation,Financials,Financial Exchanges & Data,Mature,1059556,3yr rev CAGR 12%
+MS,Morgan Stanley,Financials,Investment Banking & Brokerage,Mature,895421,3yr rev CAGR 10%
+MOS,Mosaic Company (The),Materials,Fertilizers & Agricultural Chemicals,Mature,1285785,3yr rev CAGR -14%
+MSI,Motorola Solutions,Technology,Communications Equipment,Mature,68505,3yr rev CAGR 9%
+MSCI,MSCI,Financials,Financial Exchanges & Data,Mature,1408198,3yr rev CAGR 12%
+NDAQ,"Nasdaq, Inc.",Financials,Financial Exchanges & Data,Mature,1120193,3yr rev CAGR 10%
+NTAP,NetApp,Technology,"Technology Hardware, Storage & Peripherals",Mature,1002047,3yr rev CAGR 3%
+NFLX,Netflix,Technology,Movies & Entertainment,Mature,1065280,3yr rev CAGR 13%
+NEM,Newmont,Materials,Gold,High-Growth,1164727,3yr rev CAGR 24%
+NWSA,News Corp (Class A),Technology,Publishing,Mature,1564708,3yr rev CAGR -3%
+NWS,News Corp (Class B),Technology,Publishing,Mature,1564708,3yr rev CAGR -3%
+NEE,NextEra Energy,Utilities,Multi-Utilities,Mature,753308,3yr rev CAGR -3%
+NKE,"Nike, Inc.",Consumer,"Apparel, Accessories & Luxury Goods",Mature,320187,3yr rev CAGR -3%
+NI,NiSource,Utilities,Multi-Utilities,Mature,1111711,3yr rev CAGR 4%
+NDSN,Nordson Corporation,Industrials,Industrial Machinery & Supplies & Components,Mature,72331,3yr rev CAGR 3%
+NSC,Norfolk Southern,Industrials,Rail Transportation,Mature,702165,3yr rev CAGR -2%
+NTRS,Northern Trust,Financials,Asset Management & Custody Banks,Mature,73124,3yr rev CAGR 4%
+NOC,Northrop Grumman,Industrials,Aerospace & Defense,Mature,1133421,3yr rev CAGR 5%
+NCLH,Norwegian Cruise Line Holdings,Consumer,"Hotels, Resorts & Cruise Lines",High-Growth,1513761,3yr rev CAGR 20%
+NRG,NRG Energy,Utilities,Independent Power Producers & Energy Traders,Mature,1013871,3yr rev CAGR -1%
+NUE,Nucor,Materials,Steel,Mature,73309,3yr rev CAGR -8%
+NVDA,Nvidia,Technology,Semiconductors,High-Growth,1045810,3yr rev CAGR 100%
+NVR,"NVR, Inc.",Consumer,Homebuilding,Mature,906163,3yr rev CAGR -1%
+NXPI,NXP Semiconductors,Technology,Semiconductors,Mature,1413447,3yr rev CAGR -2%
+ORLY,O'Reilly Automotive,Consumer,Automotive Retail,Mature,898173,3yr rev CAGR 7%
+OXY,Occidental Petroleum,Energy,Oil & Gas Exploration & Production,Mature,797468,3yr rev CAGR -16%
+ODFL,Old Dominion,Industrials,Cargo Ground Transportation,Mature,878927,sparse
+OMC,Omnicom Group,Technology,Advertising,Mature,29989,3yr rev CAGR 7%
+ON,ON Semiconductor,Technology,Semiconductors,Mature,1097864,3yr rev CAGR -10%
+OKE,Oneok,Energy,Oil & Gas Storage & Transportation,Mature,1039684,3yr rev CAGR 15%
+ORCL,Oracle Corporation,Technology,Application Software,Mature,1341439,3yr rev CAGR 10%
+OTIS,Otis Worldwide,Industrials,Industrial Machinery & Supplies & Components,Mature,1781335,3yr rev CAGR 2%
+PCAR,Paccar,Industrials,Construction Machinery & Heavy Transportation Equipment,Mature,75362,3yr rev CAGR -0%
+PKG,Packaging Corporation of America,Materials,Paper & Plastic Packaging Products & Materials,Mature,75677,3yr rev CAGR 2%
+PLTR,Palantir Technologies,Technology,Application Software,High-Growth,1321655,3yr rev CAGR 33%
+PANW,Palo Alto Networks,Technology,Systems Software,High-Growth,1327567,3yr rev CAGR 19%
+PSKY,Paramount Skydance Corporation,Technology,Movies & Entertainment,Mature,2041610,sparse
+PH,Parker Hannifin,Industrials,Industrial Machinery & Supplies & Components,Mature,76334,3yr rev CAGR 8%
+PAYX,Paychex,Industrials,Human Resource & Employment Services,Mature,723531,3yr rev CAGR 9%
+PYPL,PayPal,Financials,Transaction & Payment Processing Services,Mature,1633917,3yr rev CAGR 6%
+PNR,Pentair,Industrials,Industrial Machinery & Supplies & Components,Mature,77360,3yr rev CAGR 0%
+PEP,PepsiCo,Consumer,Soft Drinks & Non-alcoholic Beverages,Mature,77476,3yr rev CAGR 3%
+PFE,Pfizer,Healthcare,Pharmaceuticals,Mature,78003,3yr rev CAGR -12%
+PCG,PG&E Corporation,Utilities,Multi-Utilities,Mature,1004980,3yr rev CAGR 5%
+PM,Philip Morris International,Consumer,Tobacco,Mature,1413329,3yr rev CAGR 9%
+PSX,Phillips 66,Energy,Oil & Gas Refining & Marketing,Mature,1534701,3yr rev CAGR -8%
+PNW,Pinnacle West Capital,Utilities,Multi-Utilities,Mature,764622,3yr rev CAGR 7%
+PNC,PNC Financial Services,Financials,Diversified Banks,Mature,713676,3yr rev CAGR 3%
+PPG,PPG Industries,Materials,Specialty Chemicals,Mature,79879,3yr rev CAGR -3%
+PPL,PPL Corporation,Utilities,Electric Utilities,Mature,922224,3yr rev CAGR 6%
+PFG,Principal Financial Group,Financials,Life & Health Insurance,Mature,1126328,3yr rev CAGR -4%
+PG,Procter & Gamble,Consumer,Personal Care Products,Mature,80424,3yr rev CAGR 2%
+PGR,Progressive Corporation,Financials,Property & Casualty Insurance,High-Growth,80661,3yr rev CAGR 21%
+PLD,Prologis,REIT,Industrial REITs,Mature,1045609,3yr rev CAGR 14%
+PRU,Prudential Financial,Financials,Life & Health Insurance,Mature,1137774,3yr rev CAGR 0%
+PEG,Public Service Enterprise Group,Utilities,Electric Utilities,Mature,788784,3yr rev CAGR 7%
+PTC,PTC Inc.,Technology,Application Software,Mature,857005,3yr rev CAGR 12%
+PSA,Public Storage,REIT,Self-Storage REITs,Mature,1393311,3yr rev CAGR 5%
+PHM,PulteGroup,Consumer,Homebuilding,Mature,822416,3yr rev CAGR 2%
+PWR,Quanta Services,Industrials,Construction & Engineering,High-Growth,1050915,3yr rev CAGR 19%
+QCOM,Qualcomm,Technology,Semiconductors,Mature,804328,3yr rev CAGR 0%
+DGX,Quest Diagnostics,Healthcare,Health Care Services,Mature,1022079,3yr rev CAGR 4%
+Q,Qnity Electronics,Technology,Semiconductor Materials & Equipment,Mature,2058873,sparse
+RL,Ralph Lauren Corporation,Consumer,"Apparel, Accessories & Luxury Goods",Mature,1037038,3yr rev CAGR 8%
+RJF,Raymond James Financial,Financials,Investment Banking & Brokerage,Mature,720005,3yr rev CAGR 12%
+RTX,RTX Corporation,Industrials,Aerospace & Defense,Mature,101829,3yr rev CAGR 10%
+O,Realty Income,REIT,Retail REITs,High-Growth,726728,3yr rev CAGR 20%
+REG,Regency Centers,REIT,Retail REITs,Mature,910606,3yr rev CAGR 8%
+REGN,Regeneron Pharmaceuticals,Healthcare,Biotechnology,Mature,872589,3yr rev CAGR 6%
+RF,Regions Financial Corporation,Financials,Regional Banks,Mature,1281761,sparse
+RSG,Republic Services,Industrials,Environmental & Facilities Services,Mature,1060391,3yr rev CAGR 7%
+RMD,ResMed|,Healthcare,Health Care Equipment,Mature,943819,3yr rev CAGR 10%
+RVTY,Revvity,Healthcare,Health Care Equipment,Mature,31791,3yr rev CAGR -5%
+HOOD,Robinhood Markets,Financials,Investment Banking & Brokerage,High-Growth,1783879,3yr rev CAGR 49%
+ROK,Rockwell Automation,Industrials,Electrical Components & Equipment,Mature,1024478,3yr rev CAGR 2%
+ROL,"Rollins, Inc.",Industrials,Environmental & Facilities Services,Mature,84839,3yr rev CAGR 12%
+ROP,Roper Technologies,Technology,Electronic Equipment & Instruments,Mature,882835,3yr rev CAGR 14%
+ROST,Ross Stores,Consumer,Apparel Retail,Mature,745732,3yr rev CAGR 7%
+RCL,Royal Caribbean Group,Consumer,"Hotels, Resorts & Cruise Lines",High-Growth,884887,3yr rev CAGR 27%
+SPGI,S&P Global,Financials,Financial Exchanges & Data,Mature,64040,3yr rev CAGR 11%
+CRM,Salesforce,Technology,Application Software,Mature,1108524,3yr rev CAGR 10%
+SNDK,Sandisk,Technology,"Technology Hardware, Storage & Peripherals",Mature,2023554,sparse
+SBAC,SBA Communications,REIT,Telecom Tower REITs,Mature,1034054,3yr rev CAGR -6%
+SLB,Schlumberger,Energy,Oil & Gas Equipment & Services,Mature,87347,3yr rev CAGR 8%
+STX,Seagate Technology,Technology,"Technology Hardware, Storage & Peripherals",High-Growth,1137789,3yr rev CAGR 18%
+SRE,Sempra,Utilities,Multi-Utilities,Mature,1032208,3yr rev CAGR -3%
+NOW,ServiceNow,Technology,Systems Software,High-Growth,1373715,3yr rev CAGR 22%
+SHW,Sherwin-Williams,Materials,Specialty Chemicals,Mature,89800,3yr rev CAGR 2%
+SPG,Simon Property Group,REIT,Retail REITs,Mature,1063761,3yr rev CAGR 6%
+SWKS,Skyworks Solutions,Technology,Semiconductors,Mature,4127,3yr rev CAGR -9%
+SJM,J.M. Smucker Company (The),Consumer,Packaged Foods & Meats,Mature,91419,sparse
+SW,Smurfit Westrock,Materials,Paper & Plastic Packaging Products & Materials,High-Growth,2005951,3yr rev CAGR 32%
+SNA,Snap-on,Industrials,Industrial Machinery & Supplies & Components,Mature,91440,3yr rev CAGR 2%
+SOLV,Solventum,Healthcare,Health Care Technology,Mature,1964738,3yr rev CAGR 1%
+SO,Southern Company,Utilities,Electric Utilities,Mature,92122,3yr rev CAGR 0%
+LUV,Southwest Airlines,Industrials,Passenger Airlines,Mature,92380,3yr rev CAGR 6%
+SWK,Stanley Black & Decker,Industrials,Industrial Machinery & Supplies & Components,Mature,93556,3yr rev CAGR -4%
+SBUX,Starbucks,Consumer,Restaurants,Mature,829224,3yr rev CAGR 5%
+STT,State Street Corporation,Financials,Asset Management & Custody Banks,Mature,93751,3yr rev CAGR 5%
+STLD,Steel Dynamics,Materials,Steel,Mature,1022671,3yr rev CAGR -5%
+STE,Steris,Healthcare,Health Care Equipment,Mature,1757898,3yr rev CAGR 6%
+SYK,Stryker Corporation,Healthcare,Health Care Equipment,Mature,310764,3yr rev CAGR 11%
+SMCI,Supermicro,Technology,"Technology Hardware, Storage & Peripherals",High-Growth,1375365,3yr rev CAGR 62%
+SYF,Synchrony Financial,Financials,Consumer Finance,Mature,1601712,sparse
+SNPS,Synopsys,Technology,Application Software,Mature,883241,3yr rev CAGR 12%
+SYY,Sysco,Consumer,Food Distributors,Mature,96021,3yr rev CAGR 6%
+TMUS,T-Mobile US,Technology,Wireless Telecommunication Services,Mature,1283699,3yr rev CAGR 4%
+TROW,T. Rowe Price,Financials,Asset Management & Custody Banks,Mature,1113169,3yr rev CAGR 4%
+TTWO,Take-Two Interactive,Technology,Interactive Home Entertainment,Mature,946581,3yr rev CAGR 8%
+TPR,"Tapestry, Inc.",Consumer,"Apparel, Accessories & Luxury Goods",Mature,1116132,3yr rev CAGR 6%
+TRGP,Targa Resources,Energy,Oil & Gas Storage & Transportation,Mature,1389170,3yr rev CAGR -5%
+TGT,Target Corporation,Consumer,Consumer Staples Merchandise Retail,Mature,27419,3yr rev CAGR -1%
+TEL,TE Connectivity,Technology,Electronic Manufacturing Services,Mature,1385157,3yr rev CAGR 2%
+TDY,Teledyne Technologies,Technology,Electronic Equipment & Instruments,Mature,1094285,3yr rev CAGR 4%
+TER,Teradyne,Technology,Semiconductor Materials & Equipment,Mature,97210,3yr rev CAGR 0%
+TSLA,"Tesla, Inc.",Consumer,Automobile Manufacturers,Mature,1318605,3yr rev CAGR 5%
+TXN,Texas Instruments,Technology,Semiconductors,Mature,97476,3yr rev CAGR -4%
+TPL,Texas Pacific Land Corporation,Energy,Oil & Gas Exploration & Production,Mature,1811074,3yr rev CAGR 6%
+TXT,Textron,Industrials,Aerospace & Defense,Mature,217346,3yr rev CAGR 5%
+TMO,Thermo Fisher Scientific,Healthcare,Life Sciences Tools & Services,Mature,97745,3yr rev CAGR -0%
+TJX,TJX Companies,Consumer,Apparel Retail,Mature,109198,3yr rev CAGR 7%
+TKO,TKO Group Holdings,Technology,Movies & Entertainment,High-Growth,1973266,3yr rev CAGR 61%
+TTD,Trade Desk (The),Technology,Advertising,High-Growth,1671933,3yr rev CAGR 22%
+TSCO,Tractor Supply,Consumer,Other Specialty Retail,Mature,916365,3yr rev CAGR 3%
+TT,Trane Technologies,Industrials,Building Products,Mature,1466258,3yr rev CAGR 10%
+TDG,TransDigm Group,Industrials,Aerospace & Defense,High-Growth,1260221,3yr rev CAGR 18%
+TRV,Travelers Companies (The),Financials,Property & Casualty Insurance,Mature,86312,3yr rev CAGR 10%
+TRMB,Trimble Inc.,Technology,Application Software,Mature,864749,3yr rev CAGR -1%
+TFC,Truist Financial,Financials,Diversified Banks,Mature,92230,sparse
+TYL,Tyler Technologies,Technology,Application Software,Mature,860731,3yr rev CAGR 8%
+TSN,Tyson Foods,Consumer,Packaged Foods & Meats,Mature,100493,3yr rev CAGR 1%
+USB,U.S. Bancorp,Financials,Diversified Banks,Mature,36104,3yr rev CAGR 6%
+UBER,Uber,Industrials,Passenger Ground Transportation,High-Growth,1543151,3yr rev CAGR 18%
+UDR,"UDR, Inc.",REIT,Multi-Family Residential REITs,High-Growth,74208,3yr rev CAGR 31%
+ULTA,Ulta Beauty,Consumer,Other Specialty Retail,Mature,1403568,3yr rev CAGR 7%
+UNP,Union Pacific Corporation,Industrials,Rail Transportation,Mature,100885,3yr rev CAGR -0%
+UAL,United Airlines Holdings,Industrials,Passenger Airlines,Mature,100517,3yr rev CAGR 10%
+UPS,United Parcel Service,Industrials,Air Freight & Logistics,Mature,1090727,3yr rev CAGR -4%
+URI,United Rentals,Industrials,Trading Companies & Distributors,Mature,1067701,3yr rev CAGR 14%
+UNH,UnitedHealth Group,Healthcare,Managed Health Care,Mature,731766,3yr rev CAGR 11%
+UHS,Universal Health Services,Healthcare,Health Care Facilities,Mature,352915,3yr rev CAGR 9%
+VLO,Valero Energy,Energy,Oil & Gas Refining & Marketing,Mature,1035002,sparse
+VEEV,Veeva Systems,Healthcare,Health Care Technology,Mature,1393052,3yr rev CAGR 14%
+VTR,Ventas,REIT,Health Care REITs,Mature,740260,3yr rev CAGR 12%
+VLTO,Veralto,Industrials,Environmental & Facilities Services,Mature,1967680,3yr rev CAGR 4%
+VRSN,Verisign,Technology,Internet Services & Infrastructure,Mature,1014473,3yr rev CAGR 5%
+VRSK,Verisk Analytics,Industrials,Research & Consulting Services,Mature,1442145,3yr rev CAGR 7%
+VZ,Verizon,Technology,Integrated Telecommunication Services,Mature,732712,3yr rev CAGR 0%
+VRTX,Vertex Pharmaceuticals,Healthcare,Biotechnology,Mature,875320,3yr rev CAGR 10%
+VRT,Vertiv,Industrials,Electrical Components & Equipment,High-Growth,1674101,3yr rev CAGR 22%
+VTRS,Viatris,Healthcare,Pharmaceuticals,Mature,1792044,3yr rev CAGR -4%
+VICI,Vici Properties,REIT,Hotel & Resort REITs,High-Growth,1705696,3yr rev CAGR 15%
+V,Visa Inc.,Financials,Transaction & Payment Processing Services,Mature,1403161,3yr rev CAGR 11%
+VST,Vistra Corp.,Utilities,Electric Utilities,Mature,1692819,3yr rev CAGR 4%
+VMC,Vulcan Materials Company,Materials,Construction Materials,Mature,1396009,3yr rev CAGR 3%
+WRB,W. R. Berkley Corporation,Financials,Property & Casualty Insurance,Mature,11544,3yr rev CAGR 10%
+GWW,W. W. Grainger,Industrials,Industrial Machinery & Supplies & Components,Mature,277135,3yr rev CAGR 6%
+WAB,Wabtec,Industrials,Construction Machinery & Heavy Transportation Equipment,Mature,943452,3yr rev CAGR 10%
+WMT,Walmart,Consumer,Consumer Staples Merchandise Retail,Mature,104169,3yr rev CAGR 5%
+DIS,Walt Disney Company (The),Technology,Movies & Entertainment,Mature,1744489,3yr rev CAGR 5%
+WBD,Warner Bros. Discovery,Technology,Broadcasting,Mature,1437107,3yr rev CAGR 3%
+WM,Waste Management,Industrials,Environmental & Facilities Services,Mature,823768,3yr rev CAGR 9%
+WAT,Waters Corporation,Healthcare,Life Sciences Tools & Services,Mature,1000697,3yr rev CAGR 2%
+WEC,WEC Energy Group,Utilities,Electric Utilities,Mature,783325,3yr rev CAGR 1%
+WFC,Wells Fargo,Financials,Diversified Banks,Mature,72971,3yr rev CAGR 4%
+WELL,Welltower,REIT,Health Care REITs,High-Growth,766704,3yr rev CAGR 27%
+WST,West Pharmaceutical Services,Healthcare,Health Care Supplies,Mature,105770,3yr rev CAGR 2%
+WDC,Western Digital,Technology,"Technology Hardware, Storage & Peripherals",Mature,106040,3yr rev CAGR 2%
+WY,Weyerhaeuser,REIT,Timber REITs,Mature,106535,3yr rev CAGR -12%
+WSM,"Williams-Sonoma, Inc.",Consumer,Homefurnishing Retail,Mature,719955,3yr rev CAGR -3%
+WMB,Williams Companies,Energy,Oil & Gas Storage & Transportation,Mature,107263,3yr rev CAGR -6%
+WTW,Willis Towers Watson,Financials,Insurance Brokers,Mature,1140536,3yr rev CAGR 3%
+WDAY,"Workday, Inc.",Technology,Application Software,High-Growth,1327811,3yr rev CAGR 15%
+WYNN,Wynn Resorts,Consumer,Casinos & Gaming,High-Growth,1174922,3yr rev CAGR 18%
+XEL,Xcel Energy,Utilities,Multi-Utilities,Mature,72903,3yr rev CAGR 2%
+XYL,Xylem Inc.,Industrials,Industrial Machinery & Supplies & Components,High-Growth,1524472,3yr rev CAGR 18%
+YUM,Yum! Brands,Consumer,Restaurants,Mature,1041061,3yr rev CAGR 6%
+ZBRA,Zebra Technologies,Technology,Electronic Equipment & Instruments,Mature,877212,3yr rev CAGR -2%
+ZBH,Zimmer Biomet,Healthcare,Health Care Equipment,Mature,1136869,3yr rev CAGR 6%
+ZTS,Zoetis,Healthcare,Pharmaceuticals,Mature,1555280,3yr rev CAGR 5%
