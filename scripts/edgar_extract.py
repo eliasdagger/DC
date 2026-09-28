@@ -51,8 +51,14 @@ def load_tagmap(path: str = CONFIG_PATH) -> dict:
         return yaml.safe_load(f)
 
 
-def annual_series(usgaap: dict, tags: list, kind: str, tagmap: dict) -> pd.Series:
+def annual_series(usgaap: dict, tags: list, kind: str, tagmap: dict,
+                  value_key: str = "val") -> pd.Series:
     """One field's clean annual time series, walking a candidate tag list.
+
+    value_key: which part of each SEC record to return, indexed by period end.
+    "val" (default) = the reported number. "filed" = the date that number was
+    first filed -- same tag walk, same filters, same earliest-filed dedup, so
+    the two series always line up period for period.
 
     Judgment call #1 (period length): for 'duration' concepts, a record is
     kept only if its span is 350-380 days. Without this, quarterly figures
@@ -99,7 +105,7 @@ def annual_series(usgaap: dict, tags: list, kind: str, tagmap: dict) -> pd.Serie
 
         if recs:
             df = pd.DataFrame(recs).sort_values("filed").groupby("end").first()
-            out = out.combine_first(df["val"])
+            out = out.combine_first(df[value_key])
 
     return out.sort_index()
 

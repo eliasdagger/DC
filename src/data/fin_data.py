@@ -6,7 +6,7 @@ import yfinance as yf
 
 
 # 10-year US Treasury yield (risk-free rate proxy)
-# Update periodically or replace with live fetch
+# Update pei riodically or replace with live fetch
 RISK_FREE_RATE = 0.043
 
 from src.utils.stock_models import Company
@@ -39,12 +39,4 @@ def create_raw_fundementals_table(conn: dd.DuckDBPyConnection) -> None:
     """)
 
 def append_raw_fundementals(conn: dd.DuckDBPyConnection, ticker: str) -> None:
-
-    
-
-
-
-#     conn.execute(
-#         "INSERT INTO fundementals_raw VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-#         []
-#     )
+    pass
