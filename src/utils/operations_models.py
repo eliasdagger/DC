@@ -34,7 +34,6 @@ Example:
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import date
-
 from src.utils.stock_models import Stock
 
 
@@ -44,7 +43,7 @@ class Client(BaseModel):
     risk_tolerance: str
     age: Optional[int] = None
     holdings: List[Stock] = Field(default_factory=list, description="Current portfolio holdings")
-    holdings_value: int = Field(default=0)
+    holdings_value: Optional[int] = None
     total_holdings: Optional[int] = None
     cash_position: Optional[int] = None
     goals: str

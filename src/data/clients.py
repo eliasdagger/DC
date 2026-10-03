@@ -41,7 +41,7 @@ def create_clients_table(conn: dd.DuckDBPyConnection) -> None:
             considerations VARCHAR
             )"""
     )
-    print(f"Table: 'clients' created in dagher.duckdb")
+    print(f"Table: 'clients' created in clients.duckdb")
 
 
 def add_client(conn: dd.DuckDBPyConnection, client: Client) -> None:
@@ -62,15 +62,17 @@ def get_client_data(conn: dd.DuckDBPyConnection, client_id: int) -> pd.DataFrame
     return result
 
 def all_clients_data(conn: dd.DuckDBPyConnection) -> pd.DataFrame:
-    res = conn.excecute(
+    res = conn.execute(
         "SELECT * from clients"
     ).df()
 
     return res
 
+c1 = Client(client_id=1, name="DC", risk_tolerance="high", goals="gains")
+conn = dd.connect('clients.duckdb')
 
-conn = dd.connect('dagher.duckdb')
-add_client()
+create_clients_table(conn)
+# add_client(conn, c1)
 print(all_clients_data(conn))
 
 

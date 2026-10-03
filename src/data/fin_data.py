@@ -15,26 +15,47 @@ from src.utils.stock_models import Company
 
 def create_raw_fundementals_table(conn: dd.DuckDBPyConnection) -> None:
     conn.execute("""
-        CREATE TABLE IF NOT EXISTs fundementals_raw(
+        CREATE TABLE IF NOT EXISTS fundementals_raw(
+            -- Identifiers & Temporal Metadata
             ticker VARCHAR,
             fiscal_period_end DATE,
             filing_available_date DATE,
+
+            -- Income Statement (Temporary / Nominal Accounts)
             revenue FLOAT,
             cogs FLOAT,
+            gross_profit FLOAT,
             ebit FLOAT,
+            dep_amort FLOAT,
+            interest_expense FLOAT,
             net_income FLOAT,
-            cfo FLOAT,
-            net_assets FLOAT,
-            total_liabilities FLOAT,
-            working_capital FLOAT,
-            retained_earnings FLOAT,
+
+            -- Balance Sheet: Assets (Permanent / Real Accounts)
             cash FLOAT,
+            current_assets FLOAT,
+            total_assets FLOAT,
+
+            -- Balance Sheet: Liabilities (Permanent / Real Accounts)
+            current_liabilities FLOAT,
             total_debt FLOAT,
+            total_liabilities FLOAT,
+
+            -- Balance Sheet: Equity (Permanent / Real Accounts)
             preferred_equity FLOAT,
+            equity FLOAT,
+            retained_earnings FLOAT,
             shares_outstanding FLOAT,
+
+            -- Cash Flow Statement & Capital Allocation
+            cfo FLOAT,
+            capex FLOAT,
             dividends_paid FLOAT,
             buybacks FLOAT,
-            debt_repaid FLOAT
+            debt_repaid FLOAT,
+
+            -- Derived / Working Metrics
+            working_capital FLOAT,
+            net_assets FLOAT
             )
     """)
 

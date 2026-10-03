@@ -47,7 +47,7 @@ def cache_prices(conn: dd.DuckDBPyConnection, prices: pd.DataFrame, ticker: str)
                  high FLOAT,
                  low FLOAT,
                  close FLOAT,
-                 volume INTEGER       
+                 volume INTEGER
         )
     """)
     print(f"Storing data into dagher.duckdb...")
@@ -62,7 +62,6 @@ def get_cached_price(conn: dd.DuckDBPyConnection, ticker: str, date_str: str) ->
     result = conn.execute(
         "SELECT close FROM prices WHERE ticker = ? AND date <= ? ORDER BY date DESC LIMIT 1",
         [ticker, date_str]
-    # get the most recent cached price on or before date_str (handles weekends/holidays and yfinance's exclusive end date)
     ).fetchone()
 
     return result[0] if result else None

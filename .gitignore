@@ -219,3 +219,18 @@ __marimo__/
 
 # DuckDB scratch databases
 *.duckdb
+
+# ── Private client / portfolio data: never commit ───────────────────────────
+# Private databases (also covered by *.duckdb above; listed so it is explicit)
+clients.duckdb
+portfolio.duckdb
+# DuckDB write-ahead logs can hold recent trades before they reach the main file
+*.duckdb.wal
+*.wal
+# Real holdings / trade exports from brokers
+holdings*.csv
+trades*.csv
+portfolio*.csv
+clients*.csv
+# Keep real exports and any real database in this folder
+private/
