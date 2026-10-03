@@ -24,7 +24,7 @@ def create_trades_table(conn):
             action VARCHAR NOT NULL CHECK (action IN ('buy', 'sell')),
             tckr VARCHAR NOT NULL,
             price DECIMAL(18,4) NOT NULL CHECK (price > 0), 
-            quantity DECIMAL(18,4) NOT NULL CHECK (quantity > 0), 
+            quantity DECIMAL(24,10) NOT NULL CHECK (quantity > 0),
             currency VARCHAR NOT NULL CHECK (currency IN ('USD', 'CAD'))
         )
         """)
